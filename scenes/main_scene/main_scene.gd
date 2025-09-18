@@ -1,6 +1,6 @@
 extends Node2D
 
-@onready var question_label: Label = $pregunta
+@onready var question_label: Label = $pregunta/pregunta
 #opcion 1
 @onready var button_1: Button = $opcion1/Button
 @onready var label_1: Label = $opcion1/Label

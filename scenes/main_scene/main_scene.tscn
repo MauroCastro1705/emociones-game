@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://ck3y5ytsgn5gg"]
+[gd_scene load_steps=4 format=3 uid="uid://ck3y5ytsgn5gg"]
 
 [ext_resource type="Script" uid="uid://0weaso8v3ann" path="res://scenes/main_scene/main_scene.gd" id="1_6iw8k"]
+[ext_resource type="Texture2D" uid="uid://daqyu5r8ushtn" path="res://assets/MansionUpdated_1080p_WEBP/inthallway2_evening2.webp" id="2_symxd"]
+[ext_resource type="Theme" uid="uid://6e5qksub65vd" path="res://assets/azul_button_theme.tres" id="3_o5t4i"]
 
 [node name="MainScene" type="Node2D"]
 script = ExtResource("1_6iw8k")
@@ -9,6 +11,12 @@ script = ExtResource("1_6iw8k")
 offset_right = 1158.0
 offset_bottom = 650.0
 color = Color(0.224304, 0.224304, 0.224304, 1)
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(576.5, 322.5)
+scale = Vector2(0.600521, 0.602778)
+texture = ExtResource("2_symxd")
 metadata/_edit_lock_ = true
 
 [node name="ColorRect2" type="ColorRect" parent="."]
@@ -27,6 +35,7 @@ offset_left = 244.0
 offset_top = 468.0
 offset_right = 318.0
 offset_bottom = 499.0
+theme = ExtResource("3_o5t4i")
 text = "opcion 1"
 
 [node name="Panel" type="Panel" parent="opcion1"]
@@ -129,9 +138,19 @@ text = "texto de la opcion 1"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="pregunta" type="Label" parent="."]
-offset_left = 492.0
-offset_top = 373.0
-offset_right = 684.0
-offset_bottom = 396.0
+[node name="pregunta" type="Node2D" parent="."]
+
+[node name="panel" type="Panel" parent="pregunta"]
+offset_left = 374.0
+offset_top = 356.0
+offset_right = 800.0
+offset_bottom = 418.0
+
+[node name="pregunta" type="Label" parent="pregunta"]
+offset_left = 388.0
+offset_top = 362.0
+offset_right = 788.0
+offset_bottom = 415.0
 text = "Pregunta para el jugador"
+horizontal_alignment = 1
+vertical_alignment = 1

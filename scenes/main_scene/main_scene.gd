@@ -19,17 +19,6 @@ const DIALOGOS = preload("res://data/dialogos.gd")
 var opciones = []
 var current_id := "inicio" 
 
-# ejemplo
-var dialogo = {
-	"pregunta": "¿Qué harás?",
-	"opciones": [
-		"Hablar con el personaje",
-		"Ignorar y seguir",
-		"Preguntar sobre el lugar",
-		"Hacer una broma"
-	]
-}
-
 func _ready():
 	opciones = [
 		{"button": button_1, "label": label_1},
@@ -42,22 +31,26 @@ func _ready():
 
 func mostrar_dialogo() -> void:
 	var node = DIALOGOS.DIALOGOS.get(current_id, null)
+	if node == null:
+		push_error("Nodo de diálogo inexistente: %s" % current_id)
+		return
+
 	question_label.text = node["pregunta"]
 
-	# Setear texto/visibilidad y (re)conectar los botones
 	for i in range(opciones.size()):
 		var txt = node["opciones"][i]
 		var btn: Button = opciones[i]["button"]
-		var lab: Label = opciones[i]["label"]
-		var opt_node: Node = opciones[i]["node"]
+		var lab: Label  = opciones[i]["label"]
 
 		lab.text = txt
-		# Si la opción está vacía, ocultamos el contenedor de esa opción
-		opt_node.visible = txt != ""
 
-		# limpiar y reconectar
-		btn.pressed.disconnect_all()
-		btn.pressed.connect(_on_option_selected.bind(i))
+		# Desconecta TODAS las conexiones previas al signal "pressed"
+		for opcion in btn.get_signal_connection_list("pressed"):
+			btn.disconnect("pressed", opcion["callable"])
+
+		# Conecta el handler con índice
+		var the_call = Callable(self, "_on_option_selected").bind(i)
+		btn.pressed.connect(the_call)
 
 func _on_option_selected(index: int) -> void:
 	var node = DIALOGOS.DIALOGOS[current_id]

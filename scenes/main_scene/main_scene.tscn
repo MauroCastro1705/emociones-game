@@ -1,8 +1,19 @@
-[gd_scene load_steps=4 format=3 uid="uid://ck3y5ytsgn5gg"]
+[gd_scene load_steps=10 format=3 uid="uid://ck3y5ytsgn5gg"]
 
 [ext_resource type="Script" uid="uid://0weaso8v3ann" path="res://scenes/main_scene/main_scene.gd" id="1_6iw8k"]
 [ext_resource type="Texture2D" uid="uid://daqyu5r8ushtn" path="res://assets/MansionUpdated_1080p_WEBP/inthallway2_evening2.webp" id="2_symxd"]
+[ext_resource type="Theme" uid="uid://r5k28wgtddh6" path="res://assets/verde_button_theme.tres" id="3_2cqfw"]
 [ext_resource type="Theme" uid="uid://6e5qksub65vd" path="res://assets/azul_button_theme.tres" id="3_o5t4i"]
+[ext_resource type="LabelSettings" uid="uid://c8oxhpcf0ygjg" path="res://assets/label_text_theme.tres" id="4_34m6u"]
+[ext_resource type="FontFile" uid="uid://c136a2vhcuyce" path="res://assets/fonts/Abaddon Bold.ttf" id="5_2cqfw"]
+[ext_resource type="Theme" uid="uid://qajhb3xter4m" path="res://assets/rojo_button_theme.tres" id="6_6loks"]
+[ext_resource type="Theme" uid="uid://c6t26lejujvfl" path="res://assets/amarillo_button_theme.tres" id="7_6ycpv"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_kbdpr"]
+font = ExtResource("5_2cqfw")
+font_size = 20
+outline_size = 1
+outline_color = Color(0, 0, 0, 1)
 
 [node name="MainScene" type="Node2D"]
 script = ExtResource("1_6iw8k")
@@ -25,7 +36,7 @@ offset_left = 196.0
 offset_top = 428.0
 offset_right = 978.0
 offset_bottom = 628.0
-color = Color(0.358808, 0.276341, 0.162131, 1)
+color = Color(0.339144, 0.271922, 0.267912, 0.905882)
 metadata/_edit_lock_ = true
 
 [node name="opcion1" type="Node2D" parent="."]
@@ -39,20 +50,21 @@ theme = ExtResource("3_o5t4i")
 text = "opcion 1"
 
 [node name="Panel" type="Panel" parent="opcion1"]
-offset_left = 333.0
+offset_left = 335.0
 offset_top = 452.0
-offset_right = 523.0
+offset_right = 525.0
 offset_bottom = 517.0
 
 [node name="Label" type="Label" parent="opcion1"]
 anchors_preset = -1
 anchor_right = 3.135
 anchor_bottom = 1.0
-offset_left = 338.0
+offset_left = 340.0
 offset_top = 453.0
-offset_right = 517.0
+offset_right = 519.0
 offset_bottom = 514.0
 text = "texto de la opcion 1"
+label_settings = ExtResource("4_34m6u")
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -63,23 +75,25 @@ offset_left = 244.0
 offset_top = 562.0
 offset_right = 318.0
 offset_bottom = 593.0
+theme = ExtResource("3_2cqfw")
 text = "opcion 2"
 
 [node name="Panel2" type="Panel" parent="opcion2"]
-offset_left = 333.0
+offset_left = 336.0
 offset_top = 550.0
-offset_right = 523.0
+offset_right = 526.0
 offset_bottom = 615.0
 
 [node name="Label2" type="Label" parent="opcion2"]
 anchors_preset = -1
 anchor_right = 3.135
 anchor_bottom = 1.0
-offset_left = 338.0
+offset_left = 341.0
 offset_top = 551.0
-offset_right = 517.0
+offset_right = 520.0
 offset_bottom = 612.0
 text = "texto de la opcion 1"
+label_settings = ExtResource("4_34m6u")
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -90,32 +104,34 @@ offset_left = 614.0
 offset_top = 469.0
 offset_right = 688.0
 offset_bottom = 500.0
+theme = ExtResource("6_6loks")
 text = "opcion 3"
 
 [node name="Panel" type="Panel" parent="opcion3"]
-offset_left = 700.0
+offset_left = 708.0
 offset_top = 452.0
-offset_right = 890.0
+offset_right = 898.0
 offset_bottom = 517.0
 
 [node name="Label" type="Label" parent="opcion3"]
 anchors_preset = -1
 anchor_right = 3.135
 anchor_bottom = 1.0
-offset_left = 705.0
+offset_left = 713.0
 offset_top = 451.0
-offset_right = 884.0
+offset_right = 892.0
 offset_bottom = 512.0
 text = "texto de la opcion 1"
+label_settings = ExtResource("4_34m6u")
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="opcion4" type="Node2D" parent="."]
 
 [node name="Panel" type="Panel" parent="opcion4"]
-offset_left = 702.0
+offset_left = 710.0
 offset_top = 552.0
-offset_right = 892.0
+offset_right = 900.0
 offset_bottom = 617.0
 
 [node name="Button4" type="Button" parent="opcion4"]
@@ -123,6 +139,7 @@ offset_left = 614.0
 offset_top = 567.0
 offset_right = 688.0
 offset_bottom = 598.0
+theme = ExtResource("7_6ycpv")
 text = "opcion 4"
 
 [node name="Label" type="Label" parent="opcion4"]
@@ -130,11 +147,12 @@ z_index = 1
 anchors_preset = -1
 anchor_right = 3.135
 anchor_bottom = 1.0
-offset_left = 709.0
+offset_left = 717.0
 offset_top = 553.0
-offset_right = 888.0
+offset_right = 896.0
 offset_bottom = 614.0
 text = "texto de la opcion 1"
+label_settings = ExtResource("4_34m6u")
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -152,5 +170,6 @@ offset_top = 362.0
 offset_right = 788.0
 offset_bottom = 415.0
 text = "Pregunta para el jugador"
+label_settings = SubResource("LabelSettings_kbdpr")
 horizontal_alignment = 1
 vertical_alignment = 1

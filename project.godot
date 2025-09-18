@@ -17,16 +17,34 @@ config/icon="res://icon.svg"
 [autoload]
 
 Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
+Dialogos="*res://data/dialogos.gd"
 
 [dialogic]
 
-directories/dch_directory={}
-directories/dtl_directory={}
-layout/style_directory={}
+directories/dch_directory={
+"character1": "res://dialogic/character1.dch",
+"pedro": "res://dialogic/pedro.dch"
+}
+directories/dtl_directory={
+"conversacion_prueba": "res://dialogic/conversacion_prueba.dtl"
+}
+layout/style_directory={
+"": "res://dialogic/New_File.tres",
+"pj-1": "res://dialogic/New_File.tres",
+"pj-2": "res://dialogic/pj-2.tres"
+}
+layout/style_list=["res://dialogic/New_File.tres", "res://dialogic/pj-2.tres"]
+layout/default_style="res://dialogic/New_File.tres"
 
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/dialogic/plugin.cfg", "res://addons/script-ide/plugin.cfg")
+
+[file_customization]
+
+folder_colors={
+"res://assets/": "green"
+}
 
 [input]
 

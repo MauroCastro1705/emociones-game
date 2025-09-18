@@ -1,0 +1,21 @@
+{
+"@path": "res://addons/dialogic/Resources/character.gd",
+"@subpath": NodePath(""),
+&"_translation_id": "",
+&"color": Color(0.534359, 0.0663859, 0.653646, 1),
+&"custom_info": {
+"prefix": "",
+"sound_mood_default": "",
+"sound_moods": {},
+"style": "pj-2",
+"suffix": ""
+},
+&"default_portrait": "",
+&"description": "",
+&"display_name": "pedro",
+&"mirror": false,
+&"nicknames": ["pedro"],
+&"offset": Vector2(0, 0),
+&"portraits": {},
+&"scale": 1.0
+}

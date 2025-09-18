@@ -14,6 +14,10 @@ const DIALOGOS = preload("res://data/dialogos.gd")
 #opcion 4
 @onready var button_4: Button = $opcion4/Button4
 @onready var label_4: Label = $opcion4/Label
+#markers de dialogos
+@onready var pj_1: Marker2D = $personajes/Marker1
+@onready var pj_2: Marker2D = $personajes/Marker2
+
 
 #setup
 var opciones = []
@@ -27,6 +31,7 @@ func _ready():
 		{"button": button_4, "label": label_4},
 	]
 	mostrar_dialogo()
+	Dialogos.primer_dialogo(pj_1, pj_2)
 
 
 func mostrar_dialogo() -> void:

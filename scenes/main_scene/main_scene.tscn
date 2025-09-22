@@ -204,3 +204,11 @@ label_settings = SubResource("LabelSettings_kbdpr")
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
+
+[node name="respuestas" type="Label" parent="."]
+offset_left = 982.0
+offset_top = 30.0
+offset_right = 1056.0
+offset_bottom = 53.0
+text = "Respuestas"
+label_settings = ExtResource("4_34m6u")

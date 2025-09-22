@@ -3,35 +3,43 @@ extends Node2D
 const DIALOGOSDB = preload("res://data/dialogos.gd") #dialogos Data Base
 @onready var question_label: Label = $pregunta/pregunta
 @onready var pregunta_rect: NinePatchRect = $pregunta/pregunta_rect
+@onready var label_respuestas: Label = $respuestas
 
 #opcion 1
-@onready var button_1: Button = $opcion1/Button
+@onready var azul_button_1: Button = $opcion1/Button
 @onready var label_1: Label = $opcion1/Label
 #opcion 2
-@onready var button_2: Button = $opcion2/Button2
+@onready var verde_button_2: Button = $opcion2/Button2
 @onready var label_2: Label = $opcion2/Label2
 #opcion 3
-@onready var button_3: Button = $opcion3/Button3
+@onready var rojo_button_3: Button = $opcion3/Button3
 @onready var label_3: Label = $opcion3/Label
 #opcion 4
-@onready var button_4: Button = $opcion4/Button4
+@onready var amarillo_button_4: Button = $opcion4/Button4
 @onready var label_4: Label = $opcion4/Label
 #markers de dialogos
 @onready var pj_1: Marker2D = $personajes/Marker1
 @onready var pj_2: Marker2D = $personajes/Marker2
 
-
+var respuestas:int
+var contadores = {
+	"azul": 0,
+	"verde": 0,
+	"rojo": 0,
+	"amarillo": 0
+}
 #setup
 var opciones = []
 var current_id := "inicio" 
 
 func _ready():
+	respuestas = 0
 	opciones = [
-		{"button": button_1, "label": label_1},
-		{"button": button_2, "label": label_2},
-		{"button": button_3, "label": label_3},
-		{"button": button_4, "label": label_4},
-	]
+			{"button": azul_button_1,     "label": label_1, "key": "azul"},
+			{"button": verde_button_2,    "label": label_2, "key": "verde"},
+			{"button": rojo_button_3,     "label": label_3, "key": "rojo"},
+			{"button": amarillo_button_4, "label": label_4, "key": "amarillo"},
+		]
 	cargar_dialogo()
 	_esconder_textos()
 	Dialogos.primer_dialogo(pj_1, pj_2)
@@ -60,8 +68,24 @@ func cargar_dialogo() -> void:
 		# Conecta el handler con índice
 		var the_call = Callable(self, "_on_option_selected").bind(i)
 		btn.pressed.connect(the_call)
+		_update_respuestas()
+	
+	
+func _update_respuestas():
+		label_respuestas.text = "respuestas: " + str(respuestas)
 
 func _on_option_selected(index: int) -> void:
+	if index >= 0 and index < opciones.size():# 1) Contar por color según el botón
+		var key = opciones[index].get("key", "")
+		if key != "":
+			contadores[key] += 1
+			print("Botón %s fue presionado %d veces" % [key, contadores[key]])
+
+	respuestas += 1# 2) Contador general (si lo usás)
+	_navegar_dialogos(index)
+
+
+func _navegar_dialogos(index: int):
 	var node = DIALOGOSDB.DIALOGOS[current_id]
 	var next_list: Array = node.get("next", [])
 	var next_id := ""
@@ -69,14 +93,14 @@ func _on_option_selected(index: int) -> void:
 		next_id = str(next_list[index])
 
 	if next_id == "" or not DIALOGOSDB.DIALOGOS.has(next_id):
-		# Sin destino o fin: podés deshabilitar botones, mostrar cartel, etc.
 		print("no hay opcion disponible ", index)
 		_desactivar_opciones()
 		return
 
 	current_id = next_id
 	cargar_dialogo()
-
+	
+	
 func _desactivar_opciones() -> void:
 	for opcion in opciones:
 		(opcion["button"] as Button).disabled = true

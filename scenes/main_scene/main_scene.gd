@@ -26,7 +26,6 @@ var opciones = []
 var current_id := "inicio" 
 
 func _ready():
-	_esconder_textos()
 	opciones = [
 		{"button": button_1, "label": label_1},
 		{"button": button_2, "label": label_2},
@@ -34,6 +33,7 @@ func _ready():
 		{"button": button_4, "label": label_4},
 	]
 	cargar_dialogo()
+	_esconder_textos()
 	Dialogos.primer_dialogo(pj_1, pj_2)
 	Dialogic.timeline_ended.connect(_termino_dialogo)
 
@@ -82,20 +82,37 @@ func _desactivar_opciones() -> void:
 		(opcion["button"] as Button).disabled = true
 
 func _esconder_textos() -> void:
-	label_1.hide()
-	label_2.hide()
-	label_3.hide()
-	label_4.hide()
-	question_label.hide()
-	pregunta_rect.hide()
-	
-func _mostrart_textos():
-	label_1.show()
-	label_2.show()
-	label_3.show()
-	label_4.show()
-	question_label.show()
-	pregunta_rect.show()
-	
+	var nodes = [label_1, label_2, label_3, label_4,question_label]
+	for node in nodes:
+		node.hide()
+
 func _termino_dialogo():
-	_mostrart_textos()
+	_mostrar_textos()
+
+func _mostrar_textos():
+	var label_nodes = [label_1, label_2, label_3, label_4]
+	var question_nodes =[question_label]
+	
+	for question in question_nodes:
+		question.show()
+		question.modulate.a = 0.0
+		question.scale = Vector2(0.9, 0.9)
+		
+		var question_tween = create_tween() #para la pregunta
+		question_tween.parallel().tween_property(question, "modulate:a", 1.0, 0.2).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+		
+		question_tween.parallel().tween_property(question, "scale", Vector2.ONE, 0.2).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+		
+		await question_tween.finished
+		
+	for label in label_nodes:
+		label.show()
+		label.modulate.a = 0.0
+		label.scale = Vector2(0.7, 0.7)  # arranca más chico
+		
+		var label_tween = create_tween() #para los labels
+		label_tween.parallel().tween_property(label, "modulate:a", 1.0, 0.8).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+		
+		label_tween.parallel().tween_property(label, "scale", Vector2.ONE, 0.8).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+		
+	

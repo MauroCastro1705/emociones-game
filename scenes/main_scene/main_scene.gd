@@ -9,6 +9,9 @@ const RESPUESTASDB = preload("res://data/respuestas.gd") #dialogos Data Base
 @onready var respuestas_rojo: Label = $contador_respuestas/respuestas_rojo
 @onready var respuestas_amarillo: Label = $contador_respuestas/respuestas_amarillo
 
+#fondo negro
+@onready var fondo_negro: ColorRect = $comienzo_juego/negro
+
 
 #opcion 1
 @onready var azul_button_1: Button = $opcion1/Button
@@ -39,6 +42,12 @@ var current_id := "inicio"
 
 func _ready():
 	reset_contadores()
+	_fundido_a_negro()
+	_set_values()
+	_esconder_textos()
+	fondo_negro.modulate = Color(0,0,0,1)
+
+func _set_values():
 	respuestas = 0
 	opciones = [
 			{"button": azul_button_1,     "label": label_1, "key": "azul"},
@@ -46,8 +55,21 @@ func _ready():
 			{"button": rojo_button_3,     "label": label_3, "key": "rojo"},
 			{"button": amarillo_button_4, "label": label_4, "key": "amarillo"},
 		]
+		
+func _fundido_a_negro():
+	fondo_negro.visible = true
+	
+	var fundido_negro := create_tween()
+	fundido_negro.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+	# Animar alfa desde 1.0 (opaco) hasta 0.0 (transparente)
+	fundido_negro.tween_property(
+		fondo_negro, "modulate:a", 0.0, 2)
+	fundido_negro.tween_callback(Callable(fondo_negro, "hide"))
+	await fundido_negro.finished
+	_iniciar_dialogos()
+	
+func _iniciar_dialogos():
 	cargar_dialogo()
-	_esconder_textos()
 	Dialogos.primer_dialogo(pj_1, pj_2)#ejecutamos dialogo creado
 	Dialogic.timeline_ended.connect(_termino_dialogo)
 
@@ -122,6 +144,9 @@ func _esconder_textos() -> void:
 
 func _termino_dialogo():
 	_mostrar_textos()
+
+
+
 
 func _mostrar_textos():
 	var label_nodes = [label_1, label_2, label_3, label_4]

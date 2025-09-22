@@ -308,8 +308,6 @@ metadata/_edit_lock_ = true
 [node name="comienzo_juego" type="Node2D" parent="."]
 
 [node name="negro" type="ColorRect" parent="comienzo_juego"]
-visible = false
-z_index = 5
 offset_right = 1159.0
 offset_bottom = 656.0
-color = Color(0, 0, 0, 1)
+color = Color(0.0323822, 0.0323822, 0.0323822, 1)

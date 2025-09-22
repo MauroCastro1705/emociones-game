@@ -1,9 +1,14 @@
 extends Node2D
 
-const DIALOGOSDB = preload("res://data/dialogos.gd") #dialogos Data Base
+const RESPUESTASDB = preload("res://data/respuestas.gd") #dialogos Data Base
 @onready var question_label: Label = $pregunta/pregunta
 @onready var pregunta_rect: NinePatchRect = $pregunta/pregunta_rect
-@onready var label_respuestas: Label = $respuestas
+@onready var label_respuestas: Label = $contador_respuestas/respuestas
+@onready var respuestas_azul: Label = $contador_respuestas/respuestas_azul
+@onready var respuestas_verde: Label = $contador_respuestas/respuestas_verde
+@onready var respuestas_rojo: Label = $contador_respuestas/respuestas_rojo
+@onready var respuestas_amarillo: Label = $contador_respuestas/respuestas_amarillo
+
 
 #opcion 1
 @onready var azul_button_1: Button = $opcion1/Button
@@ -33,6 +38,7 @@ var opciones = []
 var current_id := "inicio" 
 
 func _ready():
+	reset_contadores()
 	respuestas = 0
 	opciones = [
 			{"button": azul_button_1,     "label": label_1, "key": "azul"},
@@ -42,17 +48,17 @@ func _ready():
 		]
 	cargar_dialogo()
 	_esconder_textos()
-	Dialogos.primer_dialogo(pj_1, pj_2)
+	Dialogos.primer_dialogo(pj_1, pj_2)#ejecutamos dialogo creado
 	Dialogic.timeline_ended.connect(_termino_dialogo)
 
 
 func cargar_dialogo() -> void:
-	var node = DIALOGOSDB.DIALOGOS.get(current_id, null)
+	var node = RESPUESTASDB.RESPUESTAS.get(current_id, null)
 	if node == null:
-		push_error("Nodo de diálogo inexistente: %s" % current_id)
+		push_error("no se cargaron los dialogos")
 		return
 
-	question_label.text = node["pregunta"]
+	question_label.text = node["pregunta"] #mostramos pregunta 
 
 	for i in range(opciones.size()):
 		var txt = node["opciones"][i]
@@ -72,28 +78,32 @@ func cargar_dialogo() -> void:
 	
 	
 func _update_respuestas():
-		label_respuestas.text = "respuestas: " + str(respuestas)
+	label_respuestas.text = "respuestas: " + str(respuestas)
+	respuestas_azul.text = "respuestas: " + str(get_contador("azul"))
+	respuestas_verde.text = "respuestas: " + str(get_contador("verde"))
+	respuestas_rojo.text = "respuestas: " + str(get_contador("rojo"))
+	respuestas_amarillo.text = "respuestas: " + str(get_contador("amarillo"))
 
 func _on_option_selected(index: int) -> void:
-	if index >= 0 and index < opciones.size():# 1) Contar por color según el botón
+	if index >= 0 and index < opciones.size():#Contar por color según el botón
 		var key = opciones[index].get("key", "")
 		if key != "":
-			contadores[key] += 1
-			print("Botón %s fue presionado %d veces" % [key, contadores[key]])
+			contadores[key] += 1 #sumamos al contador por color
+			print("Boton fue presionado")
 
-	respuestas += 1# 2) Contador general (si lo usás)
+	respuestas += 1# sumamos al Contador general
 	_navegar_dialogos(index)
 
 
 func _navegar_dialogos(index: int):
-	var node = DIALOGOSDB.DIALOGOS[current_id]
+	var node = RESPUESTASDB.RESPUESTAS[current_id]
 	var next_list: Array = node.get("next", [])
 	var next_id := ""
 	if index >= 0 and index < next_list.size():
 		next_id = str(next_list[index])
 
-	if next_id == "" or not DIALOGOSDB.DIALOGOS.has(next_id):
-		print("no hay opcion disponible ", index)
+	if next_id == "" or not RESPUESTASDB.RESPUESTAS.has(next_id):
+		print("no hay opcion disponible")
 		_desactivar_opciones()
 		return
 
@@ -139,4 +149,9 @@ func _mostrar_textos():
 		
 		label_tween.parallel().tween_property(label, "scale", Vector2.ONE, 0.8).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
 		
-	
+func get_contador(color: String) -> int:
+	return contadores.get(color, 0)
+
+func reset_contadores() -> void:
+	for k in contadores.keys():
+		contadores[k] = 0

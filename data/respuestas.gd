@@ -1,6 +1,6 @@
 extends Node
 # Banco de diálogos. Cada nodo tiene: pregunta, opciones[4] y next[4] (ids de siguiente nodo)
-const DIALOGOS := {
+const RESPUESTAS := {
 	"inicio": {
 		"pregunta": "Te cruzás con alguien misterioso. ¿Qué hacés?",
 		"opciones": [

@@ -1,0 +1,52 @@
+[gd_scene load_steps=6 format=3 uid="uid://ca41y5q73t00c"]
+
+[ext_resource type="Texture2D" uid="uid://dleex1ds1csos" path="res://assets/MansionUpdated_1080p_WEBP/pond1_evening.webp" id="1_e0arn"]
+[ext_resource type="Script" uid="uid://dpkrl2b6qwbn3" path="res://scenes/menu/menu.gd" id="1_y1o0p"]
+[ext_resource type="LabelSettings" uid="uid://dpumj7gunj0f3" path="res://assets/titulo.tres" id="2_037ec"]
+[ext_resource type="Theme" uid="uid://6e5qksub65vd" path="res://assets/azul_button_theme.tres" id="4_y1o0p"]
+[ext_resource type="LabelSettings" uid="uid://c8oxhpcf0ygjg" path="res://assets/label_text_theme.tres" id="5_r8yej"]
+
+[node name="Menu" type="Node2D"]
+script = ExtResource("1_y1o0p")
+
+[node name="Pond1Evening" type="Sprite2D" parent="."]
+position = Vector2(578.944, 321.5)
+scale = Vector2(0.612558, 0.610185)
+texture = ExtResource("1_e0arn")
+metadata/_edit_lock_ = true
+
+[node name="titulo" type="Label" parent="."]
+offset_left = 56.0
+offset_top = 45.0
+offset_right = 686.0
+offset_bottom = 135.0
+text = "TITULO DEL JUEGO"
+label_settings = ExtResource("2_037ec")
+metadata/_edit_lock_ = true
+
+[node name="play" type="Button" parent="."]
+offset_left = 120.0
+offset_top = 401.0
+offset_right = 251.0
+offset_bottom = 462.0
+theme = ExtResource("4_y1o0p")
+text = "JUGAR"
+
+[node name="exit" type="Button" parent="."]
+offset_left = 124.0
+offset_top = 514.0
+offset_right = 217.0
+offset_bottom = 562.0
+theme = ExtResource("4_y1o0p")
+text = "SALIR"
+
+[node name="Label" type="Label" parent="."]
+offset_left = 1040.0
+offset_top = 616.0
+offset_right = 1099.0
+offset_bottom = 639.0
+text = "Version"
+label_settings = ExtResource("5_r8yej")
+
+[connection signal="pressed" from="play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="exit" to="." method="_on_exit_pressed"]

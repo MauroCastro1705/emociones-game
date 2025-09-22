@@ -43,6 +43,8 @@ const DIALOGOS := {
 	}
 }
 
+#aca funciones con los dialogos para llamar en MAIN
+
 func primer_dialogo(pj1, pj2):
 	var layout = Dialogic.start("res://dialogic/conversacion_prueba.dtl")
 	layout.register_character(load("res://dialogic/character1.dch"),pj1,)

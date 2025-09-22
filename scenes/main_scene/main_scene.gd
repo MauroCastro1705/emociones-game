@@ -1,7 +1,9 @@
 extends Node2D
 
-const DIALOGOS = preload("res://data/dialogos.gd")
+const DIALOGOSDB = preload("res://data/dialogos.gd") #dialogos Data Base
 @onready var question_label: Label = $pregunta/pregunta
+@onready var pregunta_rect: NinePatchRect = $pregunta/pregunta_rect
+
 #opcion 1
 @onready var button_1: Button = $opcion1/Button
 @onready var label_1: Label = $opcion1/Label
@@ -24,18 +26,20 @@ var opciones = []
 var current_id := "inicio" 
 
 func _ready():
+	_esconder_textos()
 	opciones = [
 		{"button": button_1, "label": label_1},
 		{"button": button_2, "label": label_2},
 		{"button": button_3, "label": label_3},
 		{"button": button_4, "label": label_4},
 	]
-	mostrar_dialogo()
+	cargar_dialogo()
 	Dialogos.primer_dialogo(pj_1, pj_2)
+	Dialogic.timeline_ended.connect(_termino_dialogo)
 
 
-func mostrar_dialogo() -> void:
-	var node = DIALOGOS.DIALOGOS.get(current_id, null)
+func cargar_dialogo() -> void:
+	var node = DIALOGOSDB.DIALOGOS.get(current_id, null)
 	if node == null:
 		push_error("Nodo de diálogo inexistente: %s" % current_id)
 		return
@@ -58,21 +62,40 @@ func mostrar_dialogo() -> void:
 		btn.pressed.connect(the_call)
 
 func _on_option_selected(index: int) -> void:
-	var node = DIALOGOS.DIALOGOS[current_id]
+	var node = DIALOGOSDB.DIALOGOS[current_id]
 	var next_list: Array = node.get("next", [])
 	var next_id := ""
 	if index >= 0 and index < next_list.size():
 		next_id = str(next_list[index])
 
-	if next_id == "" or not DIALOGOS.DIALOGOS.has(next_id):
+	if next_id == "" or not DIALOGOSDB.DIALOGOS.has(next_id):
 		# Sin destino o fin: podés deshabilitar botones, mostrar cartel, etc.
-		print("Fin o sin 'next' para la opción ", index)
+		print("no hay opcion disponible ", index)
 		_desactivar_opciones()
 		return
 
 	current_id = next_id
-	mostrar_dialogo()
+	cargar_dialogo()
 
 func _desactivar_opciones() -> void:
-	for o in opciones:
-		(o["button"] as Button).disabled = true
+	for opcion in opciones:
+		(opcion["button"] as Button).disabled = true
+
+func _esconder_textos() -> void:
+	label_1.hide()
+	label_2.hide()
+	label_3.hide()
+	label_4.hide()
+	question_label.hide()
+	pregunta_rect.hide()
+	
+func _mostrart_textos():
+	label_1.show()
+	label_2.show()
+	label_3.show()
+	label_4.show()
+	question_label.show()
+	pregunta_rect.show()
+	
+func _termino_dialogo():
+	_mostrart_textos()

@@ -20,8 +20,9 @@ overrides = {}
 script = ExtResource("2_y2cxk")
 scene = ExtResource("4_mmonu")
 overrides = {
-"behaviour_direction": "Vector2(0, 5)",
+"behaviour_direction": "Vector2(5, 1)",
 "box_corner_radius": "10.0",
+"box_modulate": "Color(0.988235, 0.894118, 0.733333, 1)",
 "name_label_font": "\"res://assets/fonts/Abaddon Bold.ttf\"",
 "normal_font": "\"res://assets/fonts/Abaddon Light.ttf\""
 }

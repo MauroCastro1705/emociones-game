@@ -22,6 +22,7 @@ scene = ExtResource("4_1awy2")
 overrides = {
 "behaviour_direction": "Vector2(0, 5)",
 "box_corner_radius": "10.0",
+"box_modulate": "Color(0.986979, 0.895534, 0.732524, 1)",
 "name_label_font": "\"res://assets/fonts/Abaddon Bold.ttf\"",
 "normal_font": "\"res://assets/fonts/Abaddon Light.ttf\""
 }

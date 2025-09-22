@@ -181,7 +181,7 @@ vertical_alignment = 1
 
 [node name="pregunta" type="Node2D" parent="."]
 
-[node name="TextureRect" type="NinePatchRect" parent="pregunta"]
+[node name="pregunta_rect" type="NinePatchRect" parent="pregunta"]
 modulate = Color(0.60486, 0.499225, 0.403493, 1)
 offset_left = 399.0
 offset_top = 405.0

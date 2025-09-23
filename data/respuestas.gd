@@ -1,5 +1,13 @@
 extends Node
-# Banco de diálogos. Cada nodo tiene: pregunta, opciones[4] y next[4] (ids de siguiente nodo)
+# Banco de diálogos y respuestas. Cada nodo tiene: pregunta, opciones[4] y next[4] (ids de siguiente nodo)
+
+##formato:##
+#nombre del nodo
+#pregunta que le hace al personaje
+#opciones de respuestas
+#nodos a los que sigue cada respuesta
+
+
 const RESPUESTAS := {
 	"inicio": {
 		"pregunta": "Te cruzás con alguien misterioso. ¿Qué hacés?",
@@ -13,26 +21,42 @@ const RESPUESTAS := {
 	},
 
 	"saludo": {
-		"pregunta": "La persona sonríe. \"¡Hola!\"",
-		"opciones": ["Pedir ayuda", "Presentarte", "Cambiar de tema", "Despedirte"],
-		"next": ["ayuda", "presentacion", "tema", "fin"]
+		"pregunta": "La persona sonríe.",
+		"opciones": [
+			"Pedir ayuda", 
+			"Volver al inicio", 
+			"Cambiar de tema", 
+			"Despedirte"],
+		"next": ["inicio", "inicio", "broma", "fin"]
 	},
 
 	"ignorar": {
 		"pregunta": "Pasás de largo. Sentís una mirada detrás tuyo…",
-		"opciones": ["Volver", "Acelerar el paso", "Esconderte", "Silbar"],
+		"opciones": [
+			"Volver al inicio", 
+			"Acelerar el paso", 
+			"Esconderte", 
+			"Silbar"],
 		"next": ["inicio", "fin", "fin", "fin"]
 	},
 
 	"preguntar": {
-		"pregunta": "Responde: \"Estás en el Viejo Mercado.\"",
-		"opciones": ["Buscar una posada", "Comprar mapas", "Seguir explorando", "Volver al inicio"],
-		"next": ["posada", "mapas", "fin", "inicio"]
+		"pregunta": "Estás en el Viejo Mercado.",
+		"opciones": [
+			"Buscar una posada",
+			 "Comprar mapas", 
+			"Seguir explorando", 
+			"Volver al inicio"],
+		"next": ["fin", "fin", "fin", "inicio"]
 	},
 
 	"broma": {
 		"pregunta": "No se ríe. Silencio incómodo.",
-		"opciones": ["Pedir perdón", "Decir otra broma", "Huir", "Quedarte callado"],
+		"opciones": [
+			"Pedir perdón", 
+			"Decir otra broma", 
+			"Huir", 
+			"Quedarte callado"],
 		"next": ["saludo", "fin", "fin", "fin"]
 	},
 
@@ -43,7 +67,13 @@ const RESPUESTAS := {
 	}
 }
 
+
+
 #aca funciones con los dialogos para llamar en MAIN
+##formato##
+#funcion con nombre y personajes uqe incluyer
+#llamamos la funcion de dialogic para que cargue la timeline correspndiente
+#registrarmos personajes a la timeline para que sepa donde estan en la pantalla
 
 func primer_dialogo(pj1, pj2):
 	var layout = Dialogic.start("res://dialogic/conversacion_prueba.dtl")

@@ -10,62 +10,192 @@ extends Node
 
 const RESPUESTAS := {
 	"inicio": {
-		"pregunta": "Te cruzás con alguien misterioso. ¿Qué hacés?",
+		"pregunta": "Estás con tus amigos en un recreo en la clase. Roberto, un compañero de clase pasa cerca de ustedes y empieza a molestar de manera inofensiva a uno de tus amigos",
 		"opciones": [
-			"Saludar amablemente",
-			"Ignorar y seguir",
-			"Preguntar dónde estás",
-			"Hacer una broma"
+			"AZUL Ignorar la situación",
+			"",
+			"ROJO Intervenís agresivamente",
+			"NARANJA Intervenís"
 		],
-		"next": ["saludo", "ignorar", "preguntar", "broma"]
+		"next": ["azul_ignorar", "", "rojo_intervenis", "naranja_intervenis"]
 	},
 
-	"saludo": {
-		"pregunta": "La persona sonríe.",
+	"azul_ignorar": {
+		"pregunta": "AZUL Decidís ignorar la situación",
+		"opciones": ["Continuar", "", "", ""],
+		"next": ["continuar", "", "", ""]
+	},
+
+	"naranja_intervenis": {
+		"pregunta": "NARANJA Lo mirás a Roberto y le pedís que por favor deje de molestar",
+		"opciones": ["Continuar3", "", "", ""],
+		"next": ["continuar3", "", "", ""]
+	},
+
+	"rojo_intervenis": {
+		"pregunta": "ROJO Ya tuviste problemas con Roberto en el pasado, lo enfrentás diciendo que se vaya",
+		"opciones": ["Continuar4", "", "", ""],
+		"next": ["continuar4", "", "", ""]
+	},
+
+	"continuar": {
+		"pregunta": "Roberto sigue molestando a tu amigo y este no parece defenderse, sino que se pone nervioso y está intimidado",
 		"opciones": [
-			"Pedir ayuda", 
-			"Volver al inicio", 
-			"Cambiar de tema", 
-			"Despedirte"],
-		"next": ["inicio", "inicio", "broma", "fin"]
+			"",
+			"VERDE Tratar de hablar con Roberto",
+			"ROJO Intervenís con insulto",
+			""
+		],
+		"next": ["", "verde_hablar", "naranja_insulto", ""]
 	},
 
-	"ignorar": {
-		"pregunta": "Pasás de largo. Sentís una mirada detrás tuyo…",
+	"continuar3": {
+		"pregunta": "\"No te metas gil\". Roberto te insulta",
 		"opciones": [
-			"Volver al inicio", 
-			"Acelerar el paso", 
-			"Esconderte", 
-			"Silbar"],
-		"next": ["inicio", "fin", "fin", "fin"]
+			"",
+			"VERDE Tratar de hablar con Roberto",
+			"ROJO Respondés con actitud",
+			""
+		],
+		"next": ["", "verde_hablar", "naranja_actitud", ""]
 	},
 
-	"preguntar": {
-		"pregunta": "Estás en el Viejo Mercado.",
+	"verde_hablar": {
+		"pregunta": "\"Che, dejá de molestarlo, ¿no ves que la está pasando mal?\"",
+		"opciones": ["Continuar1", "", "", ""],
+		"next": ["continuar1", "", "", ""]
+	},
+
+	"naranja_insulto": {
+		"pregunta": "Hey boludo! dejá de joder",
+		"opciones": ["Continuar2", "", "", ""],
+		"next": ["continuar2", "", "", ""]
+	},
+
+	"continuar1": {
+		"pregunta": "Roberto te mira y te dice que no te metas mientras sigue molestando a tu amigo",
 		"opciones": [
-			"Buscar una posada",
-			 "Comprar mapas", 
-			"Seguir explorando", 
-			"Volver al inicio"],
-		"next": ["fin", "fin", "fin", "inicio"]
+			"",
+			"VERDE Avisar a un adulto",
+			"",
+			"NARANJA Intervenís con insulto"
+		],
+		"next": ["", "verde_aviso", "", "naranja_insulto"]
 	},
 
-	"broma": {
-		"pregunta": "No se ríe. Silencio incómodo.",
+	"continuar2": {
+		"pregunta": "Roberto te mira y se ríe. Deja de molestar a tu amigo pero esto va a tener repercusiones después de clases",
+		"opciones": ["", "", "", "Resultado 2"],
+		"next": ["", "", "", "resultado2"]
+	},
+
+	"verde_aviso": {
+		"pregunta": "Avisás a tu profesor de clase de la situación para que resuelva el conflicto",
+		"opciones": ["Resultado 1", "", "", ""],
+		"next": ["resultado1", "", "", ""]
+	},
+
+	"naranja_actitud": {
+		"pregunta": "\"Me meto si quiero, dejá de molestarnos\"",
+		"opciones": ["", "", "", "Continuar4"],
+		"next": ["", "", "", "continuar4"]
+	},
+
+	"continuar4": {
+		"pregunta": "Roberto te mira de manera agresiva y parece que te va a pegar",
 		"opciones": [
-			"Pedir perdón", 
-			"Decir otra broma", 
-			"Huir", 
-			"Quedarte callado"],
-		"next": ["saludo", "fin", "fin", "fin"]
+			"",
+			"",
+			"ROJO Lo empujás",
+			"NARANJA Te la bancás"
+		],
+		"next": ["", "", "rojo_empujas", "naranja_banca"]
 	},
 
-	"fin": {
-		"pregunta": "Fin de la demo. ¡Gracias por jugar!",
+	"naranja_banca": {
+		"pregunta": "Ambos están a punto de irse a las piñas pero el profesor los ve portándose mal y los frena",
+		"opciones": ["Resultado 3", "", "", ""],
+		"next": ["resultado3", "", "", ""]
+	},
+
+	"rojo_empujas": {
+		"pregunta": "Roberto te devuelve el empujón y te caés al piso, el profesor los frena y los manda a detención",
+		"opciones": ["Resultado 4", "", "", ""],
+		"next": ["resultado4", "", "", ""]
+	},
+
+	"naranja_amenaza": {
+		"pregunta": "\"Yo me la banco, vos tenés unos problemas me parece\"",
+		"opciones": ["", "", "", "Continuar5"],
+		"next": ["", "", "", "continuar5"]
+	},
+
+	"rojo_piña": {
+		"pregunta": "Le das una trompada en la cara a Roberto y le dejás la nariz sangrando",
+		"opciones": ["", "", "", "Continuar6"],
+		"next": ["", "", "", "continuar6"]
+	},
+
+	"continuar5": {
+		"pregunta": "Roberto te mira con enojo y tristeza",
+		"opciones": [
+			"AZUL Tratás de razonar",
+			"",
+			"ROJO Le das una piña en la cara",
+			""
+		],
+		"next": ["azul_razonar", "", "rojo_piña", ""]
+	},
+
+	"continuar6": {
+		"pregunta": "El profesor los frena a los dos y los manda a hablar con la directora",
+		"opciones": ["Resultado 6", "", "", ""],
+		"next": ["resultado6", "", "", ""]
+	},
+
+	"azul_razonar": {
+		"pregunta": "\"No quiero pelear, así que dejá de molestarnos\"",
+		"opciones": ["Resultado 5", "", "", ""],
+		"next": ["resultado5", "", "", ""]
+	},
+
+	"resultado1": {
+		"pregunta": "El profesor resuelve el conflicto, tus compañeros están sentados en clase pero tu amigo aún sigue triste",
+		"opciones": ["", "", "", ""],
+		"next": ["", "", "", ""]
+	},
+
+	"resultado2": {
+		"pregunta": "Se cruzaron después de clases y se dieron unas trompadas, ambos llegaron a sus casas lastimados",
+		"opciones": ["", "", "", ""],
+		"next": ["", "", "", ""]
+	},
+
+	"resultado3": {
+		"pregunta": "El profesor los manda a detención a los dos",
+		"opciones": ["", "", "", ""],
+		"next": ["", "", "", ""]
+	},
+
+	"resultado4": {
+		"pregunta": "Ambos fueron a detención pero vos estás lastimado levemente",
+		"opciones": ["", "", "", ""],
+		"next": ["", "", "", ""]
+	},
+
+	"resultado5": {
+		"pregunta": "El conflicto no escaló pero tu amigo está triste de no poder defenderse",
+		"opciones": ["", "", "", ""],
+		"next": ["", "", "", ""]
+	},
+
+	"resultado6": {
+		"pregunta": "Ambos están en dirección, Roberto tiene la nariz rota y deciden suspenderte una semana",
 		"opciones": ["", "", "", ""],
 		"next": ["", "", "", ""]
 	}
 }
+
 
 
 

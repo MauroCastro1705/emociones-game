@@ -29,13 +29,7 @@ const RESPUESTASDB = preload("res://data/respuestas.gd") #dialogos Data Base
 @onready var pj_1: Marker2D = $personajes/Marker1
 @onready var pj_2: Marker2D = $personajes/Marker2
 
-var respuestas:int
-var contadores = {
-	"azul": 0,
-	"verde": 0,
-	"rojo": 0,
-	"amarillo": 0
-}
+
 #setup
 var opciones = []
 var current_id := "inicio" 
@@ -48,7 +42,7 @@ func _ready():
 	fondo_negro.modulate = Color(0,0,0,1)
 
 func _set_values():
-	respuestas = 0
+	Global.respuestas = 0
 	opciones = [
 			{"button": azul_button_1,     "label": label_1, "key": "azul"},
 			{"button": verde_button_2,    "label": label_2, "key": "verde"},
@@ -100,7 +94,7 @@ func cargar_dialogo() -> void:
 	
 	
 func _update_respuestas():
-	label_respuestas.text = "respuestas: " + str(respuestas)
+	label_respuestas.text = "respuestas: " + str(Global.respuestas)
 	respuestas_azul.text = "respuestas: " + str(get_contador("azul"))
 	respuestas_verde.text = "respuestas: " + str(get_contador("verde"))
 	respuestas_rojo.text = "respuestas: " + str(get_contador("rojo"))
@@ -110,10 +104,10 @@ func _on_option_selected(index: int) -> void:
 	if index >= 0 and index < opciones.size():#Contar por color según el botón
 		var key = opciones[index].get("key", "")
 		if key != "":
-			contadores[key] += 1 #sumamos al contador por color
+			Global.contadores[key] += 1 #sumamos al contador por color
 			print("Boton fue presionado")
 
-	respuestas += 1# sumamos al Contador general
+	Global.respuestas += 1# sumamos al Contador general
 	_navegar_dialogos(index)
 
 
@@ -175,8 +169,8 @@ func _mostrar_textos():
 		label_tween.parallel().tween_property(label, "scale", Vector2.ONE, 0.8).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
 		
 func get_contador(color: String) -> int:
-	return contadores.get(color, 0)
+	return Global.contadores.get(color, 0)
 
 func reset_contadores() -> void:
-	for k in contadores.keys():
-		contadores[k] = 0
+	for k in Global.contadores.keys():
+		Global.contadores[k] = 0

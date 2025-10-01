@@ -1,0 +1,58 @@
+[gd_scene load_steps=7 format=3 uid="uid://d2kimyetxfhbr"]
+
+[ext_resource type="Script" uid="uid://nloi1hyxpce2" path="res://scenes/chart_scene/chart_scene.gd" id="1_0bgyf"]
+[ext_resource type="Script" uid="uid://dfsdqpj5nu1tk" path="res://addons/pie_chart.gd" id="1_w8c2s"]
+[ext_resource type="FontFile" uid="uid://c136a2vhcuyce" path="res://assets/fonts/Abaddon Bold.ttf" id="3_65fxr"]
+[ext_resource type="Texture2D" uid="uid://cvm7xrp55ci10" path="res://assets/personajes random/sprite1 happy.png" id="4_ney42"]
+[ext_resource type="Texture2D" uid="uid://bnspgjf5rphxi" path="res://assets/personajes random/sprite3 happy small.png" id="5_t5mof"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_65fxr"]
+font = ExtResource("3_65fxr")
+font_size = 40
+outline_size = 1
+outline_color = Color(0, 0, 0, 1)
+
+[node name="ChartScene" type="Node2D"]
+script = ExtResource("1_0bgyf")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1156.0
+offset_bottom = 651.0
+color = Color(0.190762, 0.190762, 0.190762, 1)
+metadata/_edit_lock_ = true
+
+[node name="PieChart" type="Control" parent="."]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 0
+offset_left = 299.0
+offset_top = 101.0
+offset_right = 828.0
+offset_bottom = 561.0
+script = ExtResource("1_w8c2s")
+center_proportion = 5.0
+color_scale = 3
+custom_scale = Array[Color]([Color(0.309844, 0.44763, 0.814198, 1), Color(0.384523, 0.800315, 0.405787, 1), Color(0.87451, 0.105882, 0.203922, 1), Color(0.91179, 0.667258, 0.209518, 1)])
+outer_border = true
+inner_border = true
+lateral_borders = true
+font = ExtResource("3_65fxr")
+metadata/_custom_type_script = "uid://dfsdqpj5nu1tk"
+
+[node name="Label" type="Label" parent="."]
+offset_left = 128.0
+offset_top = 107.0
+offset_right = 324.0
+offset_bottom = 152.0
+text = "Resultados "
+label_settings = SubResource("LabelSettings_65fxr")
+
+[node name="Sprite1Happy" type="Sprite2D" parent="."]
+position = Vector2(1060, 508)
+scale = Vector2(0.198813, 0.198813)
+texture = ExtResource("4_ney42")
+
+[node name="Sprite3HappySmall" type="Sprite2D" parent="."]
+position = Vector2(157, 493)
+scale = Vector2(-0.437, 0.437)
+texture = ExtResource("5_t5mof")

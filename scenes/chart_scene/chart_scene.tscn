@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://d2kimyetxfhbr"]
+[gd_scene load_steps=9 format=3 uid="uid://d2kimyetxfhbr"]
 
 [ext_resource type="Script" uid="uid://nloi1hyxpce2" path="res://scenes/chart_scene/chart_scene.gd" id="1_0bgyf"]
 [ext_resource type="Script" uid="uid://dfsdqpj5nu1tk" path="res://addons/pie_chart.gd" id="1_w8c2s"]
 [ext_resource type="FontFile" uid="uid://c136a2vhcuyce" path="res://assets/fonts/Abaddon Bold.ttf" id="3_65fxr"]
 [ext_resource type="Texture2D" uid="uid://cvm7xrp55ci10" path="res://assets/personajes random/sprite1 happy.png" id="4_ney42"]
 [ext_resource type="Texture2D" uid="uid://bnspgjf5rphxi" path="res://assets/personajes random/sprite3 happy small.png" id="5_t5mof"]
+[ext_resource type="Theme" uid="uid://6e5qksub65vd" path="res://assets/azul_button_theme.tres" id="6_t5mof"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_65fxr"]
 font = ExtResource("3_65fxr")
@@ -70,3 +71,13 @@ offset_right = 462.0
 offset_bottom = 94.0
 text = "Respuestas totales"
 label_settings = SubResource("LabelSettings_ney42")
+
+[node name="volver" type="Button" parent="."]
+offset_left = 816.0
+offset_top = 572.0
+offset_right = 955.0
+offset_bottom = 622.0
+theme = ExtResource("6_t5mof")
+text = "Volver al menu"
+
+[connection signal="pressed" from="volver" to="." method="_on_volver_pressed"]

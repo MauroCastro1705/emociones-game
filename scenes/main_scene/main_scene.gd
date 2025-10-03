@@ -30,7 +30,7 @@ const RESPUESTASDB = preload("res://data/respuestas.gd") #dialogos Data Base
 @onready var pj_2: Marker2D = $personajes/Marker2
 
 signal dialogo_finalizado
-@export var next_scene_on_finish: PackedScene
+@export var next_scene_on_finish: PackedScene = preload("res://scenes/chart_scene/chart_scene.tscn")
 
 #setup
 var opciones = []

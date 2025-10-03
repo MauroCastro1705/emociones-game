@@ -1,5 +1,6 @@
 extends Node
-var respuestas:int
+
+var respuestas:int = 0
 var contadores: Dictionary[String, int]  = {
 	"azul": 0,
 	"verde": 0,

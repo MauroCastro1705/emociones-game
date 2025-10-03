@@ -1,7 +1,7 @@
 extends Node
 # Banco de diálogos y respuestas. Cada nodo tiene: pregunta, opciones[4] y next[4] (ids de siguiente nodo)
 
-##formato:##
+#formato:#
 #nombre del nodo
 #pregunta que le hace al personaje
 #opciones de respuestas
@@ -161,38 +161,44 @@ const RESPUESTAS := {
 
 	"resultado1": {
 		"pregunta": "El profesor resuelve el conflicto, tus compañeros están sentados en clase pero tu amigo aún sigue triste",
-		"opciones": ["", "", "", ""],
-		"next": ["", "", "", ""]
+		"opciones": ["Continuar", "", "", ""],
+		"next": ["", "", "", ""],
+		"final": true,
 	},
 
 	"resultado2": {
 		"pregunta": "Se cruzaron después de clases y se dieron unas trompadas, ambos llegaron a sus casas lastimados",
-		"opciones": ["", "", "", ""],
-		"next": ["", "", "", ""]
+		"opciones": ["Continuar", "", "", ""],
+		"next": ["", "", "", ""],
+		"final": true,
 	},
 
 	"resultado3": {
 		"pregunta": "El profesor los manda a detención a los dos",
-		"opciones": ["", "", "", ""],
-		"next": ["", "", "", ""]
+		"opciones": ["Continuar", "", "", ""],
+		"next": ["", "", "", ""],
+		"final": true,
 	},
 
 	"resultado4": {
 		"pregunta": "Ambos fueron a detención pero vos estás lastimado levemente",
-		"opciones": ["", "", "", ""],
-		"next": ["", "", "", ""]
+		"opciones": ["Continuar", "", "", ""],
+		"next": ["", "", "", ""],
+		"final": true,
 	},
 
 	"resultado5": {
 		"pregunta": "El conflicto no escaló pero tu amigo está triste de no poder defenderse",
-		"opciones": ["", "", "", ""],
-		"next": ["", "", "", ""]
+		"opciones": ["Continuar", "", "", ""],
+		"next": ["", "", "", ""],
+		"final": true,
 	},
 
 	"resultado6": {
 		"pregunta": "Ambos están en dirección, Roberto tiene la nariz rota y deciden suspenderte una semana",
-		"opciones": ["", "", "", ""],
-		"next": ["", "", "", ""]
+		"opciones": ["Continuar", "", "", ""],
+		"next": ["", "", "", ""],
+		"final": true,
 	}
 }
 

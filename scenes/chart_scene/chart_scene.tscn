@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://d2kimyetxfhbr"]
+[gd_scene load_steps=8 format=3 uid="uid://d2kimyetxfhbr"]
 
 [ext_resource type="Script" uid="uid://nloi1hyxpce2" path="res://scenes/chart_scene/chart_scene.gd" id="1_0bgyf"]
 [ext_resource type="Script" uid="uid://dfsdqpj5nu1tk" path="res://addons/pie_chart.gd" id="1_w8c2s"]
@@ -10,6 +10,12 @@
 font = ExtResource("3_65fxr")
 font_size = 40
 outline_size = 1
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ney42"]
+font = ExtResource("3_65fxr")
+font_size = 22
+outline_size = 2
 outline_color = Color(0, 0, 0, 1)
 
 [node name="ChartScene" type="Node2D"]
@@ -56,3 +62,11 @@ texture = ExtResource("4_ney42")
 position = Vector2(157, 493)
 scale = Vector2(-0.437, 0.437)
 texture = ExtResource("5_t5mof")
+
+[node name="total_respuestas" type="Label" parent="."]
+offset_left = 422.0
+offset_top = 71.0
+offset_right = 462.0
+offset_bottom = 94.0
+text = "Respuestas totales"
+label_settings = SubResource("LabelSettings_ney42")

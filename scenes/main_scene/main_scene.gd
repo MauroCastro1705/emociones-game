@@ -46,10 +46,10 @@ func _ready():
 func _set_values():
 	Global.respuestas = 0
 	opciones = [
-			{"button": azul_button_1,     "label": label_1, "key": "azul"},
-			{"button": verde_button_2,    "label": label_2, "key": "verde"},
-			{"button": rojo_button_3,     "label": label_3, "key": "rojo"},
-			{"button": amarillo_button_4, "label": label_4, "key": "amarillo"},
+			{"button": azul_button_1,     "label": label_1, "key": "racional"},
+			{"button": verde_button_2,    "label": label_2, "key": "empatica"},
+			{"button": rojo_button_3,     "label": label_3, "key": "impulsiva"},
+			{"button": amarillo_button_4, "label": label_4, "key": "valiente"},
 		]
 		
 func _fundido_a_negro():
@@ -115,10 +115,10 @@ func cargar_dialogo() -> void:
 	
 func _update_respuestas():
 	label_respuestas.text = "respuestas: " + str(Global.respuestas)
-	respuestas_azul.text = "respuestas: " + str(get_contador("azul"))
-	respuestas_verde.text = "respuestas: " + str(get_contador("verde"))
-	respuestas_rojo.text = "respuestas: " + str(get_contador("rojo"))
-	respuestas_amarillo.text = "respuestas: " + str(get_contador("amarillo"))
+	respuestas_azul.text = "respuestas: " + str(get_contador("racional"))
+	respuestas_verde.text = "respuestas: " + str(get_contador("empatica"))
+	respuestas_rojo.text = "respuestas: " + str(get_contador("impulsiva"))
+	respuestas_amarillo.text = "respuestas: " + str(get_contador("valiente"))
 
 func _on_option_selected(index: int) -> void:
 	if index >= 0 and index < opciones.size():

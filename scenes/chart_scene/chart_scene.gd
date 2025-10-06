@@ -69,13 +69,13 @@ func generar_veredicto() -> String:
 
 func veredicto_por_color(color: String) -> String:
 	match color:
-		"azul":
+		"racional":
 			return "Azul - Tu estilo es reflexivo y reservado. Preferís analizar o mantener distancia antes de actuar."
-		"rojo":
+		"impulsiva":
 			return "Rojo - Tu estilo es impulsivo y reactivo. Solés actuar desde la emoción y la defensa, a veces sin pensar en consecuencias."
-		"amarillo":
+		"valiente":
 			return "Amarillo - Tu estilo es asertivo y valiente. Enfrentás los problemas con decisión, pero sin agresión."
-		"verde":
+		"empatica":
 			return "Verde - Tu estilo es empático y comunicativo. Buscás resolver los conflictos desde el diálogo y la comprensión."
 		_:
 			return "No se pudo determinar un estilo dominante."
@@ -86,17 +86,17 @@ func veredicto_por_combinacion(c1: String, c2: String) -> String:
 	var combo := [c1, c2]
 	combo.sort()
 	match combo:
-		["azul", "verde"]:
-			return "Azul y verde - Sos una persona tranquila y empática. Evitás conflictos, pero cuando actuás, lo hacés con comprensión."
-		["azul", "amarillo"]:
-			return "Azul y amarillo - Pensás antes de actuar y tomás decisiones con firmeza, equilibrando razón y acción."
-		["rojo", "amarillo"]:
-			return "Rojo y amarillo - Sos apasionado y directo. Actuás con determinación, aunque debés cuidar la impulsividad."
-		["rojo", "verde"]:
-			return " Rojo y verde - Querés ayudar y defender, pero tus emociones pueden intensificarse demasiado."
-		["amarillo", "verde"]:
-			return "Amarillo y verde - Combinás empatía con acción decidida, buscando soluciones justas y equilibradas."
-		["azul", "rojo"]:
-			return "Azul y rojo - Luchás entre la calma y la impulsividad: a veces te contenés, otras reaccionás sin pensar."
+		["racional", "empatica"]:
+			return "racional y empatica - Sos una persona tranquila y empática. Evitás conflictos, pero cuando actuás, lo hacés con comprensión."
+		["racional", "valiente"]:
+			return "racional y valiente - Pensás antes de actuar y tomás decisiones con firmeza, equilibrando razón y acción."
+		["impulsiva", "valiente"]:
+			return "impulsiva y valiente - Sos apasionado y directo. Actuás con determinación, aunque debés cuidar la impulsividad."
+		["impulsiva", "empatica"]:
+			return " impulsiva y empatica - Querés ayudar y defender, pero tus emociones pueden intensificarse demasiado."
+		["valiente", "empatica"]:
+			return "valiente y empatica - Combinás empatía con acción decidida, buscando soluciones justas y equilibradas."
+		["racional", "impulsiva"]:
+			return "racional y impulsiva - Luchás entre la calma y la impulsividad: a veces te contenés, otras reaccionás sin pensar."
 		_:
 			return "Tu perfil combina distintas emociones y estrategias ante los conflictos."

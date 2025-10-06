@@ -3,8 +3,8 @@ extends Node
 var respuestas:int = 10
 
 var contadores: Dictionary[String, int]  = {
-	"azul": 10,
-	"verde": 4,
-	"rojo": 2,
-	"amarillo": 8
+	"racional": 10, #azul
+	"empatica": 4,#verde
+	"impulsiva": 2,#rojo 
+	"valiente": 8 #amarillo
 }

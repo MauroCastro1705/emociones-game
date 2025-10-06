@@ -20,8 +20,6 @@ func _on_volver_pressed() -> void:
 func _on_veredicto_pressed() -> void:
 	mostrar_veredicto()
 
-
-
 func mostrar_veredicto():
 	var veredicto = generar_veredicto()
 	panel.show()

@@ -1,18 +1,17 @@
 [gd_scene load_steps=6 format=3 uid="uid://ca41y5q73t00c"]
 
-[ext_resource type="Texture2D" uid="uid://dleex1ds1csos" path="res://assets/MansionUpdated_1080p_WEBP/pond1_evening.webp" id="1_e0arn"]
 [ext_resource type="Script" uid="uid://dpkrl2b6qwbn3" path="res://scenes/menu/menu.gd" id="1_y1o0p"]
 [ext_resource type="LabelSettings" uid="uid://dpumj7gunj0f3" path="res://assets/titulo.tres" id="2_037ec"]
+[ext_resource type="Texture2D" uid="uid://6cnq2eo6ni1n" path="res://assets/fondos/WhatsApp Image 2025-09-30 at 20.25.48(1).jpeg" id="2_y1o0p"]
 [ext_resource type="Theme" uid="uid://6e5qksub65vd" path="res://assets/azul_button_theme.tres" id="4_y1o0p"]
 [ext_resource type="LabelSettings" uid="uid://c8oxhpcf0ygjg" path="res://assets/label_text_theme.tres" id="5_r8yej"]
 
 [node name="Menu" type="Node2D"]
 script = ExtResource("1_y1o0p")
 
-[node name="Pond1Evening" type="Sprite2D" parent="."]
-position = Vector2(578.944, 321.5)
-scale = Vector2(0.612558, 0.610185)
-texture = ExtResource("1_e0arn")
+[node name="WhatsAppImage2025-09-30At20_25_48(1)" type="Sprite2D" parent="."]
+position = Vector2(633, 335)
+texture = ExtResource("2_y1o0p")
 metadata/_edit_lock_ = true
 
 [node name="titulo" type="Label" parent="."]

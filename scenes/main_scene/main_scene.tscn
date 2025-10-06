@@ -1,7 +1,7 @@
 [gd_scene load_steps=17 format=3 uid="uid://ck3y5ytsgn5gg"]
 
 [ext_resource type="Script" uid="uid://0weaso8v3ann" path="res://scenes/main_scene/main_scene.gd" id="1_6iw8k"]
-[ext_resource type="Texture2D" uid="uid://daqyu5r8ushtn" path="res://assets/MansionUpdated_1080p_WEBP/inthallway2_evening2.webp" id="2_symxd"]
+[ext_resource type="Texture2D" uid="uid://d383fcx5jcyah" path="res://assets/fondos/WhatsApp Image 2025-09-30 at 20.25.48.jpeg" id="2_3t4qf"]
 [ext_resource type="Theme" uid="uid://r5k28wgtddh6" path="res://assets/verde_button_theme.tres" id="3_2cqfw"]
 [ext_resource type="Texture2D" uid="uid://b3db31v738yuo" path="res://assets/personajes random/sprite1 happy small.png" id="3_3t4qf"]
 [ext_resource type="Theme" uid="uid://6e5qksub65vd" path="res://assets/azul_button_theme.tres" id="3_o5t4i"]
@@ -52,28 +52,34 @@ metadata/_edit_lock_ = true
 
 [node name="Fondo" type="Sprite2D" parent="."]
 position = Vector2(576.5, 322.5)
-scale = Vector2(0.600521, 0.602778)
-texture = ExtResource("2_symxd")
+scale = Vector2(0.953003, 0.956585)
+texture = ExtResource("2_3t4qf")
 metadata/_edit_lock_ = true
 
 [node name="personajes" type="Node2D" parent="."]
 
-[node name="Sprite1HappySmall" type="Sprite2D" parent="personajes"]
-position = Vector2(851, 352)
-scale = Vector2(0.8, 0.8)
-texture = ExtResource("3_3t4qf")
+[node name="personaje 1" type="Node2D" parent="personajes"]
 
-[node name="Sprite2SadSmall" type="Sprite2D" parent="personajes"]
-position = Vector2(337, 342)
+[node name="Sprite2SadSmall" type="Sprite2D" parent="personajes/personaje 1"]
+position = Vector2(180.601, 342)
 rotation = -3.14159
 scale = Vector2(0.8, -0.8)
 texture = ExtResource("4_ugojt")
 
-[node name="Marker1" type="Marker2D" parent="personajes"]
-position = Vector2(390, 211)
+[node name="Marker1" type="Marker2D" parent="personajes/personaje 1"]
+unique_name_in_owner = true
+position = Vector2(233.601, 211)
 
-[node name="Marker2" type="Marker2D" parent="personajes"]
-position = Vector2(799, 220)
+[node name="personaje 2" type="Node2D" parent="personajes"]
+
+[node name="Sprite1HappySmall" type="Sprite2D" parent="personajes/personaje 2"]
+position = Vector2(902.8, 352)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("3_3t4qf")
+
+[node name="Marker2" type="Marker2D" parent="personajes/personaje 2"]
+unique_name_in_owner = true
+position = Vector2(850.8, 220)
 rotation = 3.1381
 
 [node name="ColorRect2" type="ColorRect" parent="."]

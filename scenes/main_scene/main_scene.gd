@@ -26,8 +26,8 @@ const RESPUESTASDB = preload("res://data/respuestas.gd") #dialogos Data Base
 @onready var amarillo_button_4: Button = $opcion4/Button4
 @onready var label_4: Label = $opcion4/Label
 #markers de dialogos
-@onready var pj_1: Marker2D = $personajes/Marker1
-@onready var pj_2: Marker2D = $personajes/Marker2
+@onready var pj_1: Marker2D = %Marker1
+@onready var pj_2: Marker2D = %Marker2
 
 signal dialogo_finalizado
 @export var next_scene_on_finish: PackedScene = preload("res://scenes/chart_scene/chart_scene.tscn")

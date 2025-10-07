@@ -66,8 +66,9 @@ func _fundido_a_negro():
 	
 func _iniciar_dialogos():
 	cargar_dialogo()
-	Dialogos.primer_dialogo(pj_1, pj_2)#ejecutamos dialogo creado
-	Dialogic.timeline_ended.connect(_termino_dialogo)
+	#Dialogos.primer_dialogo(pj_1, pj_2)#ejecutamos dialogo creado
+	#Dialogic.timeline_ended.connect(_termino_dialogo)
+	_mostrar_textos()
 
 
 func cargar_dialogo() -> void:

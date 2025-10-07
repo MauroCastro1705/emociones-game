@@ -19,7 +19,8 @@ offset_left = 56.0
 offset_top = 45.0
 offset_right = 686.0
 offset_bottom = 135.0
-text = "TITULO DEL JUEGO"
+text = "Entre Colores y 
+Emociones"
 label_settings = ExtResource("2_037ec")
 metadata/_edit_lock_ = true
 

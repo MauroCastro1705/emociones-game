@@ -5,6 +5,7 @@ var mainLevel:PackedScene = preload("res://scenes/main_scene/main_scene.tscn")
 
 func _ready() -> void:
 	version_label.text = "Verison: " + str(version)
+	AudioManager.Musica.play()
 	
 func _on_play_pressed() -> void:
 	get_tree().change_scene_to_packed(mainLevel)

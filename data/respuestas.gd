@@ -6,34 +6,34 @@ extends Node
 #pregunta que le hace al personaje
 #opciones de respuestas
 #nodos a los que sigue cada respuesta
-
+#"opciones": ["AZUL", "VERDE", "ROJO", "AMARILLO"],
 
 const RESPUESTAS := {
 	"inicio": {
 		"pregunta": "Estás con tus amigos en un recreo en la clase. Roberto, un compañero de clase pasa cerca de ustedes y empieza a molestar de manera inofensiva a uno de tus amigos",
 		"opciones": [
-			"AZUL Ignorar la situación",
+			"Ignorar la situación",
 			"",
-			"ROJO Intervenís agresivamente",
-			"NARANJA Intervenís"
+			"Intervenís agresivamente",
+			"Intervenís"
 		],
 		"next": ["azul_ignorar", "", "rojo_intervenis", "naranja_intervenis"]
 	},
 
 	"azul_ignorar": {
-		"pregunta": "AZUL Decidís ignorar la situación",
+		"pregunta": "Decidís ignorar la situación",
 		"opciones": ["Continuar", "", "", ""],
 		"next": ["continuar", "", "", ""]
 	},
 
 	"naranja_intervenis": {
-		"pregunta": "NARANJA Lo mirás a Roberto y le pedís que por favor deje de molestar",
+		"pregunta": "Lo mirás a Roberto y le pedís que por favor deje de molestar",
 		"opciones": ["Continuar3", "", "", ""],
 		"next": ["continuar3", "", "", ""]
 	},
 
 	"rojo_intervenis": {
-		"pregunta": "ROJO Ya tuviste problemas con Roberto en el pasado, lo enfrentás diciendo que se vaya",
+		"pregunta": "Ya tuviste problemas con Roberto en el pasado, lo enfrentás diciendo que se vaya",
 		"opciones": ["Continuar4", "", "", ""],
 		"next": ["continuar4", "", "", ""]
 	},
@@ -42,8 +42,8 @@ const RESPUESTAS := {
 		"pregunta": "Roberto sigue molestando a tu amigo y este no parece defenderse, sino que se pone nervioso y está intimidado",
 		"opciones": [
 			"",
-			"VERDE Tratar de hablar con Roberto",
-			"ROJO Intervenís con insulto",
+			"Tratar de hablar con Roberto",
+			"Intervenís con insulto",
 			""
 		],
 		"next": ["", "verde_hablar", "naranja_insulto", ""]
@@ -53,15 +53,15 @@ const RESPUESTAS := {
 		"pregunta": "\"No te metas gil\". Roberto te insulta",
 		"opciones": [
 			"",
-			"VERDE Tratar de hablar con Roberto",
-			"ROJO Respondés con actitud",
+			"Tratar de hablar con Roberto",
+			"Respondés con actitud",
 			""
 		],
 		"next": ["", "verde_hablar", "naranja_actitud", ""]
 	},
 
 	"verde_hablar": {
-		"pregunta": "\"Che, dejá de molestarlo, ¿no ves que la está pasando mal?\"",
+		"pregunta": "Che, dejá de molestarlo, ¿no ves que la está pasando mal?",
 		"opciones": ["Continuar1", "", "", ""],
 		"next": ["continuar1", "", "", ""]
 	},
@@ -76,9 +76,9 @@ const RESPUESTAS := {
 		"pregunta": "Roberto te mira y te dice que no te metas mientras sigue molestando a tu amigo",
 		"opciones": [
 			"",
-			"VERDE Avisar a un adulto",
+			"Avisar a un adulto",
 			"",
-			"NARANJA Intervenís con insulto"
+			"Intervenís con insulto"
 		],
 		"next": ["", "verde_aviso", "", "naranja_insulto"]
 	},
@@ -96,7 +96,7 @@ const RESPUESTAS := {
 	},
 
 	"naranja_actitud": {
-		"pregunta": "\"Me meto si quiero, dejá de molestarnos\"",
+		"pregunta": "Me meto si quiero, dejá de molestarnos",
 		"opciones": ["", "", "", "Continuar4"],
 		"next": ["", "", "", "continuar4"]
 	},
@@ -125,7 +125,7 @@ const RESPUESTAS := {
 	},
 
 	"naranja_amenaza": {
-		"pregunta": "\"Yo me la banco, vos tenés unos problemas me parece\"",
+		"pregunta": "Yo me la banco, vos tenés unos problemas me parece",
 		"opciones": ["", "", "", "Continuar5"],
 		"next": ["", "", "", "continuar5"]
 	},
@@ -139,9 +139,9 @@ const RESPUESTAS := {
 	"continuar5": {
 		"pregunta": "Roberto te mira con enojo y tristeza",
 		"opciones": [
-			"AZUL Tratás de razonar",
+			"Tratás de razonar",
 			"",
-			"ROJO Le das una piña en la cara",
+			"Le das una piña en la cara",
 			""
 		],
 		"next": ["azul_razonar", "", "rojo_piña", ""]
@@ -154,7 +154,7 @@ const RESPUESTAS := {
 	},
 
 	"azul_razonar": {
-		"pregunta": "\"No quiero pelear, así que dejá de molestarnos\"",
+		"pregunta": "No quiero pelear, así que dejá de molestarnos",
 		"opciones": ["Resultado 5", "", "", ""],
 		"next": ["resultado5", "", "", ""]
 	},

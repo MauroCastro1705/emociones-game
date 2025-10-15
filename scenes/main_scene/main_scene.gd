@@ -67,6 +67,7 @@ func _fundido_a_negro():
 func _iniciar_dialogos():
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 	cargar_dialogo()
 	#Dialogos.primer_dialogo(pj_1, pj_2)#ejecutamos dialogo creado
 	#Dialogic.timeline_ended.connect(_termino_dialogo)
@@ -74,11 +75,16 @@ func _iniciar_dialogos():
 =======
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
 	_mostrar_textos()
 	cargar_dialogo_desde_database()
 	#Dialogos.primer_dialogo(pj_1, pj_2)#ejecutamos dialogo creado
 	#Dialogic.timeline_ended.connect(_termino_dialogo)
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes

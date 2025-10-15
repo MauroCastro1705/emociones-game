@@ -37,10 +37,10 @@ var opciones = []
 var current_id := "inicio" 
 
 func _ready():
+	_esconder_textos()
 	reset_contadores()
 	_fundido_a_negro()
 	_set_values()
-	_esconder_textos()
 	fondo_negro.modulate = Color(0,0,0,1)
 
 func _set_values():
@@ -65,54 +65,65 @@ func _fundido_a_negro():
 	_iniciar_dialogos()
 	
 func _iniciar_dialogos():
+<<<<<<< Updated upstream
 	cargar_dialogo()
 	#Dialogos.primer_dialogo(pj_1, pj_2)#ejecutamos dialogo creado
 	#Dialogic.timeline_ended.connect(_termino_dialogo)
 	_mostrar_textos()
+=======
+	_mostrar_textos()
+	cargar_dialogo_desde_database()
+	#Dialogos.primer_dialogo(pj_1, pj_2)#ejecutamos dialogo creado
+	#Dialogic.timeline_ended.connect(_termino_dialogo)
+>>>>>>> Stashed changes
 
 
-func cargar_dialogo() -> void:
+func cargar_dialogo_desde_database() -> void:
 	var node = RESPUESTASDB.RESPUESTAS.get(current_id, null)
-	if node == null:
-		push_error("No existe el nodo de diálogo: %s" % current_id)
-		return
-
 	question_label.text = str(node.get("pregunta", ""))
-
 	var es_final := bool(node.get("final", false))
 	var opts: Array = node.get("opciones", [])
 
 	for i in range(opciones.size()):
-		var btn: Button = opciones[i]["button"]
-		var lab: Label  = opciones[i]["label"]
-
-		var txt := ""
-		if not es_final:
-			if i < opts.size():
-				txt = str(opts[i])
-			else:
-				txt = ""
-		else:
-			# En nodo final, dejamos visible solo el primer botón como "Continuar"
-			if i == 0:
-				txt = "Continuar"
-			else:
-				txt = ""
-
-		lab.text = txt
-		btn.visible = (txt != "")
-
-		# Limpia conexiones previas
-		for c in btn.get_signal_connection_list("pressed"):
-			btn.disconnect("pressed", c["callable"])
-
-		# Reconecta sólo si está visible
-		if btn.visible:
-			var the_call := Callable(self, "_on_option_selected").bind(i)
-			btn.pressed.connect(the_call)
-
+		_cargar_opciones_en_botones(i, opts, es_final)
 	_update_respuestas()
+
+
+func _cargar_opciones_en_botones(i: int, opts: Array, es_final: bool) -> void:
+	var btn: Button = opciones[i]["button"]
+	var lab: Label  = opciones[i]["label"]
+
+	var txt := _texto_de_opcion(i, es_final, opts)  # devuelve String
+	lab.text = txt
+	btn.visible = (txt != "")
+	btn.disabled = not btn.visible# re-habilita si corresponde
+
+	_limpiar_conexiones_previas(btn)
+	_reconectar_opciones_si_visible(btn, i)
+
+func _texto_de_opcion(i: int, es_final: bool, opts: Array) -> String:
+	if es_final:
+		return _texto_final(i)
+	return _texto_normal(i, opts)
+
+func _texto_final(i: int) -> String:
+	return "Continuar" if i == 0 else ""
+
+func _texto_normal(i: int, opts: Array) -> String:
+	return str(opts[i]) if (i >= 0 and i < opts.size()) else ""
+
+func _limpiar_conexiones_previas(btn: Button) -> void:
+	for c in btn.get_signal_connection_list("pressed"):
+		btn.disconnect("pressed", c["callable"])
 	
+func _reconectar_opciones_si_visible(btn: Button, i: int) -> void:
+	if not btn.visible:
+		return
+	var the_call := Callable(self, "_on_option_selected").bind(i)
+	if btn.pressed.is_connected(the_call):
+		btn.pressed.disconnect(the_call)
+	btn.pressed.connect(the_call)
+
 	
 func _update_respuestas():
 	label_respuestas.text = "respuestas: " + str(Global.respuestas)
@@ -134,10 +145,6 @@ func _on_option_selected(index: int) -> void:
 
 func _navegar_dialogos(index: int) -> void:
 	var node = RESPUESTASDB.RESPUESTAS.get(current_id, null)
-	if node == null:
-		push_error("Nodo actual inválido: %s" % current_id)
-		return
-
 	var next_list: Array = node.get("next", [])
 	var next_id := ""
 	if index >= 0 and index < next_list.size():
@@ -158,36 +165,35 @@ func _navegar_dialogos(index: int) -> void:
 		return
 
 	current_id = next_id
-	cargar_dialogo()
+	cargar_dialogo_desde_database()
 
 	# C) Si el destino es final, cerrar (si preferís esperar a que pongan "Continuar", comentá esto)
 	if bool(next_node.get("final", false)):
 		_finalizar_dialogo()
-	
+
 func _finalizar_dialogo() -> void:
 	emit_signal("dialogo_finalizado")
-
 	_desactivar_opciones()
 	_esconder_textos()
 
 	if next_scene_on_finish != null:
 		get_tree().change_scene_to_packed(next_scene_on_finish)
-	else:
-		push_warning("Fin de diálogo alcanzado, pero no hay PackedScene destino configurada.")
 
 	
 func _desactivar_opciones() -> void:
+	print("desactive opciones")
 	for opcion in opciones:
 		var b: Button = opcion["button"]
 		b.disabled = true
 
 func _esconder_textos() -> void:
+	print("escondi texto")
 	var nodes = [label_1, label_2, label_3, label_4,question_label]
 	for node in nodes:
 		node.hide()
 
-func _termino_dialogo():
-	_mostrar_textos()
+#func _termino_dialogo():
+#	_mostrar_textos()
 
 func _mostrar_textos():
 	var label_nodes = [label_1, label_2, label_3, label_4]

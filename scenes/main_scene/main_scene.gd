@@ -142,13 +142,13 @@ func _navegar_dialogos(index: int) -> void:
 	if index >= 0 and index < next_list.size():
 		next_id = str(next_list[index])
 
-	# A) Sin destino => fin
+	# Sin destino => fin
 	if next_id == "":
 		_desactivar_opciones()
 		_finalizar_dialogo()
 		return
 
-	# B) Con destino
+	#  Con destino
 	var next_node = RESPUESTASDB.RESPUESTAS.get(next_id, null)
 	if next_node == null:
 		push_warning("next_id inválido: %s" % next_id)
@@ -159,7 +159,6 @@ func _navegar_dialogos(index: int) -> void:
 	current_id = next_id
 	cargar_dialogo_desde_database()
 
-	# C) Si el destino es final, cerrar (si preferís esperar a que pongan "Continuar", comentá esto)
 	if bool(next_node.get("final", false)):
 		_finalizar_dialogo()
 
@@ -173,13 +172,11 @@ func _finalizar_dialogo() -> void:
 
 	
 func _desactivar_opciones() -> void:
-	print("desactive opciones")
 	for opcion in opciones:
 		var b: Button = opcion["button"]
 		b.disabled = true
 
 func _esconder_textos() -> void:
-	print("escondi texto")
 	var nodes = [label_1, label_2, label_3, label_4,question_label]
 	for node in nodes:
 		node.hide()

@@ -105,8 +105,8 @@ offset_left = 232.0
 offset_top = 202.0
 offset_right = 287.0
 offset_bottom = 251.0
-text = "Andres
-Mauro"
+text = "Andres Bianco
+Mauro Castro"
 metadata/_edit_group_ = true
 
 [node name="Label4" type="Label" parent="textos"]
@@ -131,7 +131,7 @@ offset_top = 192.0
 offset_right = 938.0
 offset_bottom = 241.0
 text = "Matias Robles
-Rodrigo"
+Rodrigo Vera"
 metadata/_edit_group_ = true
 
 [node name="Label6" type="Label" parent="textos"]
@@ -139,5 +139,5 @@ offset_left = 732.0
 offset_top = 335.0
 offset_right = 840.0
 offset_bottom = 384.0
-text = "Andres"
+text = "Andres Bianco"
 metadata/_edit_group_ = true

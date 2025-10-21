@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://ca41y5q73t00c"]
+[gd_scene load_steps=7 format=3 uid="uid://ca41y5q73t00c"]
 
 [ext_resource type="Script" uid="uid://dpkrl2b6qwbn3" path="res://scenes/menu/menu.gd" id="1_y1o0p"]
 [ext_resource type="LabelSettings" uid="uid://dpumj7gunj0f3" path="res://assets/titulo.tres" id="2_037ec"]
 [ext_resource type="Texture2D" uid="uid://6cnq2eo6ni1n" path="res://assets/fondos/WhatsApp Image 2025-09-30 at 20.25.48(1).jpeg" id="2_y1o0p"]
 [ext_resource type="Theme" uid="uid://6e5qksub65vd" path="res://assets/azul_button_theme.tres" id="4_y1o0p"]
 [ext_resource type="LabelSettings" uid="uid://c8oxhpcf0ygjg" path="res://assets/label_text_theme.tres" id="5_r8yej"]
+[ext_resource type="Theme" uid="uid://c6t26lejujvfl" path="res://assets/amarillo_button_theme.tres" id="6_r8yej"]
 
 [node name="Menu" type="Node2D"]
 script = ExtResource("1_y1o0p")
@@ -33,10 +34,10 @@ theme = ExtResource("4_y1o0p")
 text = "JUGAR"
 
 [node name="exit" type="Button" parent="."]
-offset_left = 124.0
-offset_top = 514.0
-offset_right = 217.0
-offset_bottom = 562.0
+offset_left = 916.0
+offset_top = 452.0
+offset_right = 1009.0
+offset_bottom = 500.0
 theme = ExtResource("4_y1o0p")
 text = "SALIR"
 
@@ -48,5 +49,14 @@ offset_bottom = 639.0
 text = "Version"
 label_settings = ExtResource("5_r8yej")
 
+[node name="creditos" type="Button" parent="."]
+offset_left = 147.0
+offset_top = 514.0
+offset_right = 232.0
+offset_bottom = 547.0
+theme = ExtResource("6_r8yej")
+text = "Creditos"
+
 [connection signal="pressed" from="play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="creditos" to="." method="_on_creditos_pressed"]

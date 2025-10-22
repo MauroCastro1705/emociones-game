@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://d2kimyetxfhbr"]
+[gd_scene load_steps=12 format=3 uid="uid://d2kimyetxfhbr"]
 
 [ext_resource type="Script" uid="uid://nloi1hyxpce2" path="res://scenes/chart_scene/chart_scene.gd" id="1_0bgyf"]
 [ext_resource type="Script" uid="uid://dfsdqpj5nu1tk" path="res://addons/pie_chart.gd" id="1_w8c2s"]
+[ext_resource type="Material" uid="uid://cueaoi5m8ys1" path="res://shaders/wave_lines.tres" id="2_ut7to"]
 [ext_resource type="FontFile" uid="uid://c136a2vhcuyce" path="res://assets/fonts/Abaddon Bold.ttf" id="3_65fxr"]
 [ext_resource type="Texture2D" uid="uid://cvm7xrp55ci10" path="res://assets/personajes random/sprite1 happy.png" id="4_ney42"]
 [ext_resource type="Texture2D" uid="uid://bnspgjf5rphxi" path="res://assets/personajes random/sprite3 happy small.png" id="5_t5mof"]
@@ -17,7 +18,7 @@ outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_ney42"]
 font = ExtResource("3_65fxr")
-font_size = 22
+font_size = 26
 outline_size = 2
 outline_color = Color(0, 0, 0, 1)
 
@@ -25,6 +26,7 @@ outline_color = Color(0, 0, 0, 1)
 script = ExtResource("1_0bgyf")
 
 [node name="ColorRect" type="ColorRect" parent="."]
+material = ExtResource("2_ut7to")
 offset_right = 1156.0
 offset_bottom = 651.0
 color = Color(0.190762, 0.190762, 0.190762, 1)
@@ -69,8 +71,8 @@ texture = ExtResource("5_t5mof")
 [node name="total_respuestas" type="Label" parent="."]
 offset_left = 83.0
 offset_top = 165.0
-offset_right = 259.0
-offset_bottom = 191.0
+offset_right = 487.0
+offset_bottom = 195.0
 text = "Respuestas totales"
 label_settings = SubResource("LabelSettings_ney42")
 

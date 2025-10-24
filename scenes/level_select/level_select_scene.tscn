@@ -1,0 +1,131 @@
+[gd_scene load_steps=6 format=3 uid="uid://b8etv6w1oigbo"]
+
+[ext_resource type="FontFile" uid="uid://c136a2vhcuyce" path="res://assets/fonts/Abaddon Bold.ttf" id="1_6s0g3"]
+[ext_resource type="Theme" uid="uid://c6t26lejujvfl" path="res://assets/amarillo_button_theme.tres" id="2_kk5v1"]
+
+[sub_resource type="Shader" id="Shader_glsnu"]
+code = "shader_type canvas_item;
+
+uniform float stripes = 4.82; 
+uniform float stripe_thickness = 1.33;
+uniform vec3 stripe_color : source_color = vec3(0.59, .98, .69); 
+uniform vec3 background_color : source_color = vec3(0, 0, 0); 
+
+
+vec2 rot(vec2 uv, float angle) {
+	float s = sin(angle);
+	float c = cos(angle);
+	mat2 rotation_matrix = mat2(vec2(c, s), vec2(-s, c));
+	return uv * rotation_matrix;
+}
+
+
+void fragment() {
+	vec2 uv = SCREEN_UV - 0.5;
+	uv = rot(uv, -0.2 + sin(TIME) * 0.05);
+	float osc = sin(uv.x * (uv.x + 0.5) * 15.0) * 0.2;
+	uv.y += osc * sin(TIME + uv.x * 2.0);
+	uv.y = fract(uv.y * stripes);
+	float mask = smoothstep(0.5, 0.55, uv.y);
+	mask -= smoothstep(0.5 + stripe_thickness, 0.55 + stripe_thickness, uv.y);
+	vec3 final_color = mix(background_color.rgb, stripe_color.rgb, mask);
+	COLOR = vec4(final_color, 1.0);
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lq1es"]
+shader = SubResource("Shader_glsnu")
+shader_parameter/stripes = 2.0
+shader_parameter/stripe_thickness = 5.0
+shader_parameter/stripe_color = Color(0.0370967, 0.201063, 0.222501, 1)
+shader_parameter/background_color = Color(0.134808, 0.279095, 0.300405, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_kk5v1"]
+font = ExtResource("1_6s0g3")
+font_size = 82
+outline_size = 10
+outline_color = Color(0.806602, 0.0959093, 0.163678, 1)
+shadow_size = 30
+shadow_color = Color(0.972549, 0.419608, 0.0980392, 0.807843)
+
+[node name="LevelSelectScene" type="Node2D"]
+
+[node name="fondo_animado" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_lq1es")
+offset_right = 1156.0
+offset_bottom = 651.0
+color = Color(0.190762, 0.190762, 0.190762, 1)
+metadata/_edit_lock_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(800, 400)
+offset_left = 185.0
+offset_top = 60.0
+offset_right = 1002.0
+offset_bottom = 460.0
+alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+custom_minimum_size = Vector2(600, 0)
+layout_mode = 2
+text = "Seleccionar Tematica"
+label_settings = SubResource("LabelSettings_kk5v1")
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 1
+theme_override_constants/margin_top = 1
+theme_override_constants/margin_right = 1
+theme_override_constants/margin_bottom = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 50
+alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 50
+
+[node name="escena_1" type="Button" parent="VBoxContainer/MarginContainer/HBoxContainer/MarginContainer"]
+custom_minimum_size = Vector2(125, 75)
+layout_mode = 2
+text = "escena 1"
+
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 50
+
+[node name="escena_2" type="Button" parent="VBoxContainer/MarginContainer/HBoxContainer/MarginContainer2"]
+custom_minimum_size = Vector2(125, 75)
+layout_mode = 2
+text = "escena 2
+"
+
+[node name="MarginContainer3" type="MarginContainer" parent="VBoxContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 50
+
+[node name="escena_3" type="Button" parent="VBoxContainer/MarginContainer/HBoxContainer/MarginContainer3"]
+custom_minimum_size = Vector2(125, 75)
+layout_mode = 2
+text = "escena 3"
+
+[node name="volver" type="Button" parent="."]
+offset_left = 958.0
+offset_top = 562.0
+offset_right = 1106.0
+offset_bottom = 613.0
+theme = ExtResource("2_kk5v1")
+text = "Volver al menu"

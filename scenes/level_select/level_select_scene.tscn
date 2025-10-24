@@ -1,7 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://b8etv6w1oigbo"]
+[gd_scene load_steps=10 format=3 uid="uid://b8etv6w1oigbo"]
 
 [ext_resource type="FontFile" uid="uid://c136a2vhcuyce" path="res://assets/fonts/Abaddon Bold.ttf" id="1_6s0g3"]
+[ext_resource type="Script" uid="uid://b140hu1ggm5ta" path="res://scenes/level_select/level_select_scene.gd" id="1_cfj6l"]
 [ext_resource type="Theme" uid="uid://c6t26lejujvfl" path="res://assets/amarillo_button_theme.tres" id="2_kk5v1"]
+[ext_resource type="Theme" uid="uid://6e5qksub65vd" path="res://assets/azul_button_theme.tres" id="3_w66cj"]
+[ext_resource type="Theme" uid="uid://qajhb3xter4m" path="res://assets/rojo_button_theme.tres" id="4_tik65"]
+[ext_resource type="Theme" uid="uid://r5k28wgtddh6" path="res://assets/verde_button_theme.tres" id="5_hfu7j"]
 
 [sub_resource type="Shader" id="Shader_glsnu"]
 code = "shader_type canvas_item;
@@ -49,6 +53,7 @@ shadow_size = 30
 shadow_color = Color(0.972549, 0.419608, 0.0980392, 0.807843)
 
 [node name="LevelSelectScene" type="Node2D"]
+script = ExtResource("1_cfj6l")
 
 [node name="fondo_animado" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_lq1es")
@@ -95,6 +100,7 @@ theme_override_constants/margin_bottom = 50
 [node name="escena_1" type="Button" parent="VBoxContainer/MarginContainer/HBoxContainer/MarginContainer"]
 custom_minimum_size = Vector2(125, 75)
 layout_mode = 2
+theme = ExtResource("3_w66cj")
 text = "escena 1"
 
 [node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer/MarginContainer/HBoxContainer"]
@@ -107,6 +113,7 @@ theme_override_constants/margin_bottom = 50
 [node name="escena_2" type="Button" parent="VBoxContainer/MarginContainer/HBoxContainer/MarginContainer2"]
 custom_minimum_size = Vector2(125, 75)
 layout_mode = 2
+theme = ExtResource("4_tik65")
 text = "escena 2
 "
 
@@ -120,6 +127,7 @@ theme_override_constants/margin_bottom = 50
 [node name="escena_3" type="Button" parent="VBoxContainer/MarginContainer/HBoxContainer/MarginContainer3"]
 custom_minimum_size = Vector2(125, 75)
 layout_mode = 2
+theme = ExtResource("5_hfu7j")
 text = "escena 3"
 
 [node name="volver" type="Button" parent="."]
@@ -129,3 +137,5 @@ offset_right = 1106.0
 offset_bottom = 613.0
 theme = ExtResource("2_kk5v1")
 text = "Volver al menu"
+
+[connection signal="pressed" from="volver" to="." method="_on_volver_pressed"]

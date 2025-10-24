@@ -1,6 +1,12 @@
 extends Node2D
 
 const RESPUESTASDB = preload("res://data/respuestas.gd") #dialogos Data Base
+const NIVEL_1 = preload("res://data/nivel_1.gd")
+const NIVEL_2 = preload("res://data/nivel_2.gd")
+const NIVEL_3 = preload("res://data/nivel_3.gd")
+
+@export var next_scene_on_finish: PackedScene = preload("res://scenes/chart_scene/chart_scene.tscn")
+
 @onready var question_label: Label = $pregunta/pregunta
 @onready var pregunta_rect: NinePatchRect = $pregunta/pregunta_rect
 @onready var label_respuestas: Label = $contador_respuestas/respuestas
@@ -30,7 +36,6 @@ const RESPUESTASDB = preload("res://data/respuestas.gd") #dialogos Data Base
 @onready var pj_2: Marker2D = %Marker2
 
 signal dialogo_finalizado
-@export var next_scene_on_finish: PackedScene = preload("res://scenes/chart_scene/chart_scene.tscn")
 
 #setup
 var opciones = []

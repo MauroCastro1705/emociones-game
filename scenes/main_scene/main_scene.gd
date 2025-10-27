@@ -4,6 +4,8 @@ const RESPUESTASDB = preload("res://data/respuestas.gd") #dialogos Data Base
 const NIVEL_1 = preload("res://data/nivel_1.gd")
 const NIVEL_2 = preload("res://data/nivel_2.gd")
 const NIVEL_3 = preload("res://data/nivel_3.gd")
+var escena_elegida_local
+
 
 @export var next_scene_on_finish: PackedScene = preload("res://scenes/chart_scene/chart_scene.tscn")
 
@@ -42,11 +44,25 @@ var opciones = []
 var current_id := "inicio" 
 
 func _ready():
+	cargar_escena_elegida()
 	_esconder_textos()
 	reset_contadores()
 	_fundido_a_negro()
 	_set_values()
 	fondo_negro.modulate = Color(0,0,0,1)
+	
+
+func cargar_escena_elegida(): #seleccionamos el dialgoo correcto en la base de datos
+	match Global.escena_elegida_global:
+		1: escena_elegida_local = NIVEL_1 #asignamos variable a constante con path
+		2: escena_elegida_local = NIVEL_2
+		3: escena_elegida_local = NIVEL_3
+		_: print("error de escena elegida")
+
+#funcion que retorna la base de datos con los dialogos
+func get_escena_elegida_node_data():
+	var node = escena_elegida_local.RESPUESTAS.get(current_id, null)
+	return node
 
 func _set_values():
 	Global.respuestas = 0
@@ -76,7 +92,7 @@ func _iniciar_dialogos():
 	#Dialogic.timeline_ended.connect(_termino_dialogo)
 
 func cargar_dialogo_desde_database() -> void:
-	var node = RESPUESTASDB.RESPUESTAS.get(current_id, null)
+	var node = get_escena_elegida_node_data() #usamos funcion para traer data de dialogos
 	question_label.text = str(node.get("pregunta", ""))
 	var es_final := bool(node.get("final", false))
 	var opts: Array = node.get("opciones", [])
@@ -141,7 +157,7 @@ func _on_option_selected(index: int) -> void:
 
 
 func _navegar_dialogos(index: int) -> void:
-	var node = RESPUESTASDB.RESPUESTAS.get(current_id, null)
+	var node = get_escena_elegida_node_data()
 	var next_list: Array = node.get("next", [])
 	var next_id := ""
 	if index >= 0 and index < next_list.size():
@@ -154,7 +170,7 @@ func _navegar_dialogos(index: int) -> void:
 		return
 
 	#  Con destino
-	var next_node = RESPUESTASDB.RESPUESTAS.get(next_id, null)
+	var next_node = get_escena_elegida_node_data()
 	if next_node == null:
 		push_warning("next_id inválido: %s" % next_id)
 		_desactivar_opciones()

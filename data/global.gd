@@ -8,3 +8,5 @@ var contadores: Dictionary[String, int]  = {
 	"impulsiva": 2,#rojo 
 	"valiente": 8 #amarillo
 }
+
+var escena_elegida_global:int = 1 #escena default

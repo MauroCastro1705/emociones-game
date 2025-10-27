@@ -1,8 +1,9 @@
 extends Node2D
 var version = ProjectSettings.get_setting("application/config/version")
 @onready var version_label: Label = $Label
-var mainLevel:PackedScene = preload("res://scenes/main_scene/main_scene.tscn")
+var mainLevel:PackedScene = preload("res://scenes/level_select/level_select_scene.tscn")
 const creditos := "res://scenes/creditos/creditos.tscn"
+
 func _ready() -> void:
 	version_label.text = "Verison: " + str(version)
 	AudioManager.Musica.play()

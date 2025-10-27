@@ -15,7 +15,7 @@ config/version="0.0.3"
 config/tags=PackedStringArray("unso_motores")
 run/main_scene="uid://ca41y5q73t00c"
 config/features=PackedStringArray("4.4", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="uid://dges43khsmro8"
 
 [autoload]
 

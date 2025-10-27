@@ -65,9 +65,9 @@ metadata/_edit_lock_ = true
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 custom_minimum_size = Vector2(800, 400)
 offset_left = 185.0
-offset_top = 60.0
+offset_top = 120.0
 offset_right = 1002.0
-offset_bottom = 460.0
+offset_bottom = 520.0
 alignment = 1
 metadata/_edit_use_anchors_ = true
 
@@ -138,4 +138,7 @@ offset_bottom = 613.0
 theme = ExtResource("2_kk5v1")
 text = "Volver al menu"
 
+[connection signal="pressed" from="VBoxContainer/MarginContainer/HBoxContainer/MarginContainer/escena_1" to="." method="_on_escena_1_pressed"]
+[connection signal="pressed" from="VBoxContainer/MarginContainer/HBoxContainer/MarginContainer2/escena_2" to="." method="_on_escena_2_pressed"]
+[connection signal="pressed" from="VBoxContainer/MarginContainer/HBoxContainer/MarginContainer3/escena_3" to="." method="_on_escena_3_pressed"]
 [connection signal="pressed" from="volver" to="." method="_on_volver_pressed"]

@@ -10,7 +10,7 @@ extends Node
 
 const RESPUESTAS := {
 	"inicio": {
-		"pregunta": "Estás con tus amigos en un recreo en la clase. Roberto, un compañero de clase pasa cerca de ustedes y empieza a molestar de manera inofensiva a uno de tus amigos",
+		"pregunta": "BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB",
 		"opciones": [
 			"Ignorar la situación",
 			"",

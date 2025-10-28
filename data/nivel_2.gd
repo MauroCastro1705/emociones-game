@@ -47,7 +47,7 @@ const RESPUESTAS := {
 }
 
 
-func primer_dialogo(pj1, pj2):
-	var layout = Dialogic.start("res://dialogic/conversacion_prueba.dtl")
-	layout.register_character(load("res://dialogic/character1.dch"), pj1)
-	layout.register_character(load("res://dialogic/pedro.dch"), pj2)
+#func primer_dialogo(pj1, pj2):
+#	var layout = Dialogic.start("res://dialogic/conversacion_prueba.dtl")
+#	layout.register_character(load("res://dialogic/character1.dch"), pj1)
+#	layout.register_character(load("res://dialogic/pedro.dch"), pj2)

@@ -4,8 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://6cnq2eo6ni1n" path="res://assets/fondos/WhatsApp Image 2025-09-30 at 20.25.48(1).jpeg" id="2_y1o0p"]
 [ext_resource type="FontFile" uid="uid://c136a2vhcuyce" path="res://assets/fonts/Abaddon Bold.ttf" id="3_t0a87"]
 [ext_resource type="Texture2D" uid="uid://c2pvrqjuryngb" path="res://assets/modern-ui mauro.png" id="4_qo0fc"]
-[ext_resource type="Theme" uid="uid://6e5qksub65vd" path="res://assets/azul_button_theme.tres" id="4_y1o0p"]
 [ext_resource type="LabelSettings" uid="uid://c8oxhpcf0ygjg" path="res://assets/label_text_theme.tres" id="5_r8yej"]
+[ext_resource type="Theme" uid="uid://qajhb3xter4m" path="res://assets/rojo_button_theme.tres" id="5_t0a87"]
 [ext_resource type="Theme" uid="uid://c6t26lejujvfl" path="res://assets/amarillo_button_theme.tres" id="6_r8yej"]
 [ext_resource type="Texture2D" uid="uid://dges43khsmro8" path="res://assets/titulo.png" id="8_k48pe"]
 
@@ -35,7 +35,8 @@ Button/styles/normal = SubResource("StyleBoxTexture_bx5ov")
 [node name="Menu" type="Node2D"]
 script = ExtResource("1_y1o0p")
 
-[node name="WhatsAppImage2025-09-30At20_25_48(1)" type="Sprite2D" parent="."]
+[node name="fondo" type="Sprite2D" parent="."]
+modulate = Color(0.133196, 0.133196, 0.133196, 1)
 position = Vector2(576, 326)
 scale = Vector2(0.958755, 0.958755)
 texture = ExtResource("2_y1o0p")
@@ -54,7 +55,7 @@ offset_left = 906.0
 offset_top = 576.0
 offset_right = 999.0
 offset_bottom = 624.0
-theme = ExtResource("4_y1o0p")
+theme = ExtResource("5_t0a87")
 text = "SALIR"
 
 [node name="Label" type="Label" parent="."]

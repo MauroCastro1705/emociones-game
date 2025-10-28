@@ -9,6 +9,8 @@ var escena_elegida_local
 
 @export var next_scene_on_finish: PackedScene = preload("res://scenes/chart_scene/chart_scene.tscn")
 
+@onready var pause_menu: Control = $Pause_menu
+
 @onready var question_label: Label = $pregunta/pregunta
 @onready var pregunta_rect: NinePatchRect = $pregunta/pregunta_rect
 @onready var label_respuestas: Label = $contador_respuestas/respuestas
@@ -44,12 +46,14 @@ var opciones = []
 var current_id := "inicio" 
 
 func _ready():
+	pause_menu.visible = false
 	cargar_escena_elegida()
 	_esconder_textos()
 	reset_contadores()
 	_fundido_a_negro()
 	_set_values()
 	fondo_negro.modulate = Color(0,0,0,1)
+	set_process_input(true)	# Atajo: ESC para volver
 	
 
 func cargar_escena_elegida(): #seleccionamos el dialgoo correcto en la base de datos
@@ -237,3 +241,10 @@ func get_contador(color: String) -> int:
 func reset_contadores() -> void:
 	for k in Global.contadores.keys():
 		Global.contadores[k] = 0
+		
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("ui_cancel"):
+		mostrar_pause_menu()
+		
+func mostrar_pause_menu():
+	pause_menu.visible = true

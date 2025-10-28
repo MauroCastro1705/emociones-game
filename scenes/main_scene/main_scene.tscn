@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://ck3y5ytsgn5gg"]
+[gd_scene load_steps=18 format=3 uid="uid://ck3y5ytsgn5gg"]
 
 [ext_resource type="Script" uid="uid://0weaso8v3ann" path="res://scenes/main_scene/main_scene.gd" id="1_6iw8k"]
 [ext_resource type="Texture2D" uid="uid://d383fcx5jcyah" path="res://assets/fondos/WhatsApp Image 2025-09-30 at 20.25.48.jpeg" id="2_3t4qf"]
@@ -11,6 +11,7 @@
 [ext_resource type="Theme" uid="uid://qajhb3xter4m" path="res://assets/rojo_button_theme.tres" id="6_6loks"]
 [ext_resource type="Theme" uid="uid://c6t26lejujvfl" path="res://assets/amarillo_button_theme.tres" id="7_6ycpv"]
 [ext_resource type="Texture2D" uid="uid://c1f5nq0r4pi6s" path="res://assets/fondo_ui.png" id="8_umvci"]
+[ext_resource type="PackedScene" uid="uid://bwbs7u1ym8kgo" path="res://UI/pause_menu/Pause_menu.tscn" id="12_ugojt"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_kbdpr"]
 font = ExtResource("5_2cqfw")
@@ -60,7 +61,7 @@ metadata/_edit_lock_ = true
 
 [node name="personaje 1" type="Node2D" parent="personajes"]
 
-[node name="Sprite2SadSmall" type="Sprite2D" parent="personajes/personaje 1"]
+[node name="Sprite_1" type="Sprite2D" parent="personajes/personaje 1"]
 position = Vector2(180.601, 342)
 rotation = -3.14159
 scale = Vector2(0.8, -0.8)
@@ -72,7 +73,7 @@ position = Vector2(233.601, 211)
 
 [node name="personaje 2" type="Node2D" parent="personajes"]
 
-[node name="Sprite1HappySmall" type="Sprite2D" parent="personajes/personaje 2"]
+[node name="Sprite_2" type="Sprite2D" parent="personajes/personaje 2"]
 position = Vector2(902.8, 352)
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("3_3t4qf")
@@ -318,3 +319,10 @@ z_index = 5
 offset_right = 1159.0
 offset_bottom = 656.0
 color = Color(0, 0, 0, 1)
+
+[node name="Pause_menu" parent="." instance=ExtResource("12_ugojt")]
+visible = false
+offset_left = -7.0
+offset_top = 7.0
+offset_right = -7.0
+offset_bottom = 7.0

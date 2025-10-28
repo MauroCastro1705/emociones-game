@@ -36,8 +36,14 @@ var escena_elegida_local
 @onready var amarillo_button_4: Button = $opcion4/Button4
 @onready var label_4: Label = $opcion4/Label
 #markers de dialogos
+@onready var sprite_1: Sprite2D = $"personajes/personaje 1/Sprite_1"
 @onready var pj_1: Marker2D = %Marker1
+
+@onready var sprite_2: Sprite2D = $"personajes/personaje 2/Sprite_2"
 @onready var pj_2: Marker2D = %Marker2
+
+@onready var fondo: Sprite2D = $Fondo
+
 
 signal dialogo_finalizado
 

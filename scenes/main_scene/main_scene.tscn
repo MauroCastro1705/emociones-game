@@ -61,7 +61,7 @@ metadata/_edit_lock_ = true
 
 [node name="personaje 1" type="Node2D" parent="personajes"]
 
-[node name="Sprite2SadSmall" type="Sprite2D" parent="personajes/personaje 1"]
+[node name="Sprite_1" type="Sprite2D" parent="personajes/personaje 1"]
 position = Vector2(180.601, 342)
 rotation = -3.14159
 scale = Vector2(0.8, -0.8)
@@ -73,7 +73,7 @@ position = Vector2(233.601, 211)
 
 [node name="personaje 2" type="Node2D" parent="personajes"]
 
-[node name="Sprite1HappySmall" type="Sprite2D" parent="personajes/personaje 2"]
+[node name="Sprite_2" type="Sprite2D" parent="personajes/personaje 2"]
 position = Vector2(902.8, 352)
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("3_3t4qf")

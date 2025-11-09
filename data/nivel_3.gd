@@ -1,218 +1,79 @@
 extends Node
-# Banco de diálogos y respuestas. Cada nodo tiene: pregunta, opciones[4] y next[4] (ids de siguiente nodo)
-
-#formato:#
-#nombre del nodo
-#pregunta que le hace al personaje
-#opciones de respuestas
-#nodos a los que sigue cada respuesta
-#"opciones": ["AZUL", "VERDE", "ROJO", "AMARILLO"],
 
 const RESPUESTAS := {
 	"inicio": {
-		"pregunta": "BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB",
-		"opciones": [
-			"Ignorar la situación",
-			"",
-			"Intervenís agresivamente",
-			"Intervenís"
-		],
-		"next": ["azul_ignorar", "", "rojo_intervenis", "naranja_intervenis"]
+		"pregunta": "Estás con tus compañeros de curso en las clases de educación física. Están en el campo de deportes jugando al fútbol contra los más grandes. El partido está picante y te meten una falta que te lastima el pie.",
+		"opciones": ["Metés un empujón", "Continuás el juego", "Pedís que tengan cuidado", "Insultás"], # ROJO, AZUL, VERDE, NARANJA
+		"next": ["Dialogo1", "Dialogo1", "Dialogo1", "Dialogo1"]
 	},
 
-	"azul_ignorar": {
-		"pregunta": "Decidís ignorar la situación",
-		"opciones": ["Continuar", "", "", ""],
-		"next": ["continuar", "", "", ""]
+	"Dialogo1": {
+		"pregunta": "El partido continúa. El otro equipo está en tu área y cuando vas a sacarle la pelota al jugador te mete un cuerpo con violencia y te tira al suelo.",
+		"opciones": ["El juego continúa", "Te acercás a hablar", "Seguís insultando", "Metés un cuerpo con fuerza"], # AZUL, VERDE, NARANJA, ROJO
+		"next": ["Dialogo3", "Dialogo2", "Dialogo5", "Dialogo3"]
 	},
 
-	"naranja_intervenis": {
-		"pregunta": "Lo mirás a Roberto y le pedís que por favor deje de molestar",
-		"opciones": ["Continuar3", "", "", ""],
-		"next": ["continuar3", "", "", ""]
+	"Dialogo2": {
+		"pregunta": "Trataste de hablar con ellos, pero no te dan importancia y te ignoran.",
+		"opciones": ["Te retirás", "Vas con tus amigos", "Los insultás", "Le sacás la pelota con bronca"], # AZUL, VERDE, NARANJA, ROJO
+		"next": ["Dialogo4", "Dialogo6", "Dialogo7", "Dialogo8"]
 	},
 
-	"rojo_intervenis": {
-		"pregunta": "Ya tuviste problemas con Roberto en el pasado, lo enfrentás diciendo que se vaya",
-		"opciones": ["Continuar4", "", "", ""],
-		"next": ["continuar4", "", "", ""]
+	"Dialogo3": {
+		"pregunta": "Seguís el partido porque sabés que la agresividad es parte del juego.",
+		"opciones": ["Vas con tus amigos", "Les tirás un chiste agresivo", "Le metés una falta a propósito", "Continuás el partido"], # VERDE, NARANJA, ROJO, AZUL
+		"next": ["Dialogo6", "Dialogo7", "Dialogo8", "Dialogo6"]
 	},
 
-	"continuar": {
-		"pregunta": "Roberto sigue molestando a tu amigo y este no parece defenderse, sino que se pone nervioso y está intimidado",
-		"opciones": [
-			"",
-			"Tratar de hablar con Roberto",
-			"Intervenís con insulto",
-			""
-		],
-		"next": ["", "verde_hablar", "naranja_insulto", ""]
+	"Dialogo4": {
+		"pregunta": "Tu contrincante y sus amigos te bardean.",
+		"opciones": ["Le sacás la pelota con bronca", "Respondés con un chiste", "Los insultás agresivamente", "Los ignorás"], # ROJO, VERDE, NARANJA, AZUL
+		"next": ["Dialogo6", "Dialogo7", "Dialogo8", "Dialogo6"]
 	},
 
-	"continuar3": {
-		"pregunta": "\"No te metas gil\". Roberto te insulta",
-		"opciones": [
-			"",
-			"Tratar de hablar con Roberto",
-			"Respondés con actitud",
-			""
-		],
-		"next": ["", "verde_hablar", "naranja_actitud", ""]
+	"Dialogo5": {
+		"pregunta": "Tirás a tu contrincante al suelo y te mira con enojo. Se está acercando a vos de manera agresiva.",
+		"opciones": ["Te alejás", "Te juntás con tu grupo", "Le das un pelotazo", "Te imponés con amenazas"], # AZUL, VERDE, ROJO, NARANJA
+		"next": ["Dialogo4", "Dialogo6", "Dialogo7", "Dialogo8"]
 	},
 
-	"verde_hablar": {
-		"pregunta": "Che, dejá de molestarlo, ¿no ves que la está pasando mal?",
-		"opciones": ["Continuar1", "", "", ""],
-		"next": ["continuar1", "", "", ""]
+	"Dialogo6": {
+		"pregunta": "Se juntan con tus amigos y van a jugar de forma agresiva y violenta contra los contrincantes.",
+		"opciones": ["Jugás a ganar", "Coordinás con tu equipo", "Jugás agresivamente con tu equipo", "Jugás con violencia"], # AZUL, VERDE, NARANJA, ROJO
+		"next": ["Dialogo8", "Dialogo8", "Dialogo8", "Dialogo8"]
 	},
 
-	"naranja_insulto": {
-		"pregunta": "Hey boludo! dejá de joder",
-		"opciones": ["Continuar2", "", "", ""],
-		"next": ["continuar2", "", "", ""]
+	"Dialogo7": {
+		"pregunta": "Junto a tus amigos van a jugar imponiéndose frente al contrincante. El partido está picante y el juego se vuelve cada vez más agresivo entre ambos.",
+		"opciones": ["Jugás con normalidad", "Tratás de ganar el juego", "Hacés chistes y buscás molestar", "Jugás con habilidad y agresividad"], # AZUL, VERDE, NARANJA, ROJO
+		"next": ["Dialogo9", "Dialogo9", "Dialogo10", "Dialogo10"]
 	},
 
-	"continuar1": {
-		"pregunta": "Roberto te mira y te dice que no te metas mientras sigue molestando a tu amigo",
-		"opciones": [
-			"",
-			"Avisar a un adulto",
-			"",
-			"Intervenís con insulto"
-		],
-		"next": ["", "verde_aviso", "", "naranja_insulto"]
+	"Dialogo8": {
+		"pregunta": "Se empujan y la situación escala con violencia entre los grupos.",
+		"opciones": ["Abandonás la pelea", "Llamás al profe", "Tratás de frenar la pelea", "Golpeás con violencia"], # AZUL, VERDE, NARANJA, ROJO
+		"next": ["Dialogo11", "Dialogo11", "Dialogo11", "Dialogo11"]
 	},
 
-	"continuar2": {
-		"pregunta": "Roberto te mira y se ríe. Deja de molestar a tu amigo pero esto va a tener repercusiones después de clases",
-		"opciones": ["", "", "", "Resultado 2"],
-		"next": ["", "", "", "resultado2"]
+	# Nodos finales
+	"Dialogo9": {
+		"pregunta": "El partido termina con la victoria de tu equipo. Demostraron que pueden ganar a sus adversarios en su propio juego.",
+		"opciones": [],
+		"next": [],
+		"final": true
 	},
 
-	"verde_aviso": {
-		"pregunta": "Avisás a tu profesor de clase de la situación para que resuelva el conflicto",
-		"opciones": ["Resultado 1", "", "", ""],
-		"next": ["resultado1", "", "", ""]
+	"Dialogo10": {
+		"pregunta": "El partido termina con la victoria de tu equipo, jugaron con agresividad y eso es parte del juego. Regresaron del club con lastimaduras superficiales.",
+		"opciones": [],
+		"next": [],
+		"final": true
 	},
 
-	"naranja_actitud": {
-		"pregunta": "Me meto si quiero, dejá de molestarnos",
-		"opciones": ["", "", "", "Continuar4"],
-		"next": ["", "", "", "continuar4"]
-	},
-
-	"continuar4": {
-		"pregunta": "Roberto te mira de manera agresiva y parece que te va a pegar",
-		"opciones": [
-			"",
-			"",
-			"ROJO Lo empujás",
-			"NARANJA Te la bancás"
-		],
-		"next": ["", "", "rojo_empujas", "naranja_banca"]
-	},
-
-	"naranja_banca": {
-		"pregunta": "Ambos están a punto de irse a las piñas pero el profesor los ve portándose mal y los frena",
-		"opciones": ["Resultado 3", "", "", ""],
-		"next": ["resultado3", "", "", ""]
-	},
-
-	"rojo_empujas": {
-		"pregunta": "Roberto te devuelve el empujón y te caés al piso, el profesor los frena y los manda a detención",
-		"opciones": ["Resultado 4", "", "", ""],
-		"next": ["resultado4", "", "", ""]
-	},
-
-	"naranja_amenaza": {
-		"pregunta": "Yo me la banco, vos tenés unos problemas me parece",
-		"opciones": ["", "", "", "Continuar5"],
-		"next": ["", "", "", "continuar5"]
-	},
-
-	"rojo_piña": {
-		"pregunta": "Le das una trompada en la cara a Roberto y le dejás la nariz sangrando",
-		"opciones": ["", "", "", "Continuar6"],
-		"next": ["", "", "", "continuar6"]
-	},
-
-	"continuar5": {
-		"pregunta": "Roberto te mira con enojo y tristeza",
-		"opciones": [
-			"Tratás de razonar",
-			"",
-			"Le das una piña en la cara",
-			""
-		],
-		"next": ["azul_razonar", "", "rojo_piña", ""]
-	},
-
-	"continuar6": {
-		"pregunta": "El profesor los frena a los dos y los manda a hablar con la directora",
-		"opciones": ["Resultado 6", "", "", ""],
-		"next": ["resultado6", "", "", ""]
-	},
-
-	"azul_razonar": {
-		"pregunta": "No quiero pelear, así que dejá de molestarnos",
-		"opciones": ["Resultado 5", "", "", ""],
-		"next": ["resultado5", "", "", ""]
-	},
-
-	"resultado1": {
-		"pregunta": "El profesor resuelve el conflicto, tus compañeros están sentados en clase pero tu amigo aún sigue triste",
-		"opciones": ["Continuar", "", "", ""],
-		"next": ["", "", "", ""],
-		"final": true,
-	},
-
-	"resultado2": {
-		"pregunta": "Se cruzaron después de clases y se dieron unas trompadas, ambos llegaron a sus casas lastimados",
-		"opciones": ["Continuar", "", "", ""],
-		"next": ["", "", "", ""],
-		"final": true,
-	},
-
-	"resultado3": {
-		"pregunta": "El profesor los manda a detención a los dos",
-		"opciones": ["Continuar", "", "", ""],
-		"next": ["", "", "", ""],
-		"final": true,
-	},
-
-	"resultado4": {
-		"pregunta": "Ambos fueron a detención pero vos estás lastimado levemente",
-		"opciones": ["Continuar", "", "", ""],
-		"next": ["", "", "", ""],
-		"final": true,
-	},
-
-	"resultado5": {
-		"pregunta": "El conflicto no escaló pero tu amigo está triste de no poder defenderse",
-		"opciones": ["Continuar", "", "", ""],
-		"next": ["", "", "", ""],
-		"final": true,
-	},
-
-	"resultado6": {
-		"pregunta": "Ambos están en dirección, Roberto tiene la nariz rota y deciden suspenderte una semana",
-		"opciones": ["Continuar", "", "", ""],
-		"next": ["", "", "", ""],
-		"final": true,
+	"Dialogo11": {
+		"pregunta": "El conflicto llama la atención del profesor y este interviene para frenarlos. Ambos están lastimados físicamente y quedaron con mucho enojo. La pelea fue reportada a la autoridad.",
+		"opciones": [],
+		"next": [],
+		"final": true
 	}
 }
-
-
-
-
-#aca funciones con los dialogos para llamar en MAIN
-##formato##
-#funcion con nombre y personajes uqe incluyer
-#llamamos la funcion de dialogic para que cargue la timeline correspndiente
-#registrarmos personajes a la timeline para que sepa donde estan en la pantalla
-
-func primer_dialogo(pj1, pj2):
-	var layout = Dialogic.start("res://dialogic/conversacion_prueba.dtl")
-	layout.register_character(load("res://dialogic/character1.dch"),pj1,)
-	layout.register_character(load("res://dialogic/pedro.dch"),pj2,)
-	

@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://b8etv6w1oigbo"]
+[gd_scene load_steps=11 format=3 uid="uid://b8etv6w1oigbo"]
 
 [ext_resource type="FontFile" uid="uid://c136a2vhcuyce" path="res://assets/fonts/Abaddon Bold.ttf" id="1_6s0g3"]
 [ext_resource type="Script" uid="uid://b140hu1ggm5ta" path="res://scenes/level_select/level_select_scene.gd" id="1_cfj6l"]
 [ext_resource type="Theme" uid="uid://c6t26lejujvfl" path="res://assets/amarillo_button_theme.tres" id="2_kk5v1"]
 [ext_resource type="Theme" uid="uid://6e5qksub65vd" path="res://assets/azul_button_theme.tres" id="3_w66cj"]
+[ext_resource type="LabelSettings" uid="uid://b3fee4lcg6dl2" path="res://assets/texto_generico.tres" id="4_hfu7j"]
 [ext_resource type="Theme" uid="uid://qajhb3xter4m" path="res://assets/rojo_button_theme.tres" id="4_tik65"]
 [ext_resource type="Theme" uid="uid://r5k28wgtddh6" path="res://assets/verde_button_theme.tres" id="5_hfu7j"]
 
@@ -90,45 +91,143 @@ layout_mode = 2
 theme_override_constants/separation = 50
 alignment = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/MarginContainer/HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 50
 theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 50
+theme_override_constants/margin_bottom = 10
 
-[node name="escena_1" type="Button" parent="VBoxContainer/MarginContainer/HBoxContainer/MarginContainer"]
-custom_minimum_size = Vector2(125, 75)
+[node name="escena_1" type="Button" parent="VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/MarginContainer"]
+custom_minimum_size = Vector2(100, 75)
 layout_mode = 2
 theme = ExtResource("3_w66cj")
 text = "escena 1"
 
-[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer/MarginContainer/HBoxContainer"]
+[node name="Panel_escena1" type="Panel" parent="VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(80, 170)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/Panel_escena1"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="Label_escena1" type="Label" parent="VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/Panel_escena1/MarginContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_vertical = 1
+text = "texto sobre escena 1asdawdasd
+sdwqwfgasgasdasda
+sdasd"
+label_settings = ExtResource("4_hfu7j")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer2"]
 layout_mode = 2
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 50
 theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 50
+theme_override_constants/margin_bottom = 10
 
-[node name="escena_2" type="Button" parent="VBoxContainer/MarginContainer/HBoxContainer/MarginContainer2"]
-custom_minimum_size = Vector2(125, 75)
+[node name="escena_2" type="Button" parent="VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer2/MarginContainer2"]
+custom_minimum_size = Vector2(100, 75)
 layout_mode = 2
 theme = ExtResource("4_tik65")
 text = "escena 2
 "
 
-[node name="MarginContainer3" type="MarginContainer" parent="VBoxContainer/MarginContainer/HBoxContainer"]
+[node name="Panel_escena2" type="Panel" parent="VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(100, 170)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer2/Panel_escena2"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="Label_escena2" type="Label" parent="VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer2/Panel_escena2/MarginContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_vertical = 1
+text = "texto sobre escena 2"
+label_settings = ExtResource("4_hfu7j")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="VBoxContainer/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+
+[node name="MarginContainer3" type="MarginContainer" parent="VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer3"]
 layout_mode = 2
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 50
 theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 50
+theme_override_constants/margin_bottom = 10
 
-[node name="escena_3" type="Button" parent="VBoxContainer/MarginContainer/HBoxContainer/MarginContainer3"]
-custom_minimum_size = Vector2(125, 75)
+[node name="escena_3" type="Button" parent="VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer3/MarginContainer3"]
+custom_minimum_size = Vector2(100, 75)
 layout_mode = 2
 theme = ExtResource("5_hfu7j")
 text = "escena 3"
+
+[node name="Panel_escena3" type="Panel" parent="VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer3"]
+custom_minimum_size = Vector2(80, 170)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer3/Panel_escena3"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="Label_escena3" type="Label" parent="VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer3/Panel_escena3/MarginContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_vertical = 1
+text = "texto sobre escena 3"
+label_settings = ExtResource("4_hfu7j")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
 
 [node name="volver" type="Button" parent="."]
 offset_left = 958.0
@@ -138,7 +237,13 @@ offset_bottom = 613.0
 theme = ExtResource("2_kk5v1")
 text = "Volver al menu"
 
-[connection signal="pressed" from="VBoxContainer/MarginContainer/HBoxContainer/MarginContainer/escena_1" to="." method="_on_escena_1_pressed"]
-[connection signal="pressed" from="VBoxContainer/MarginContainer/HBoxContainer/MarginContainer2/escena_2" to="." method="_on_escena_2_pressed"]
-[connection signal="pressed" from="VBoxContainer/MarginContainer/HBoxContainer/MarginContainer3/escena_3" to="." method="_on_escena_3_pressed"]
+[connection signal="mouse_entered" from="VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/MarginContainer/escena_1" to="." method="_on_escena_1_mouse_entered"]
+[connection signal="mouse_exited" from="VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/MarginContainer/escena_1" to="." method="_on_escena_1_mouse_exited"]
+[connection signal="pressed" from="VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/MarginContainer/escena_1" to="." method="_on_escena_1_pressed"]
+[connection signal="mouse_entered" from="VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer2/MarginContainer2/escena_2" to="." method="_on_escena_2_mouse_entered"]
+[connection signal="mouse_exited" from="VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer2/MarginContainer2/escena_2" to="." method="_on_escena_2_mouse_exited"]
+[connection signal="pressed" from="VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer2/MarginContainer2/escena_2" to="." method="_on_escena_2_pressed"]
+[connection signal="mouse_entered" from="VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer3/MarginContainer3/escena_3" to="." method="_on_escena_3_mouse_entered"]
+[connection signal="mouse_exited" from="VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer3/MarginContainer3/escena_3" to="." method="_on_escena_3_mouse_exited"]
+[connection signal="pressed" from="VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer3/MarginContainer3/escena_3" to="." method="_on_escena_3_pressed"]
 [connection signal="pressed" from="volver" to="." method="_on_volver_pressed"]

@@ -9,14 +9,10 @@
 [ext_resource type="Texture2D" uid="uid://caosv1vjctfuw" path="res://assets/personajes random/sprite2 sad small.png" id="4_ugojt"]
 [ext_resource type="FontFile" uid="uid://c136a2vhcuyce" path="res://assets/fonts/Abaddon Bold.ttf" id="5_2cqfw"]
 [ext_resource type="Theme" uid="uid://qajhb3xter4m" path="res://assets/rojo_button_theme.tres" id="6_6loks"]
+[ext_resource type="LabelSettings" uid="uid://b3fee4lcg6dl2" path="res://assets/texto_generico.tres" id="6_f6yoc"]
 [ext_resource type="Theme" uid="uid://c6t26lejujvfl" path="res://assets/amarillo_button_theme.tres" id="7_6ycpv"]
 [ext_resource type="Texture2D" uid="uid://c1f5nq0r4pi6s" path="res://assets/fondo_ui.png" id="8_umvci"]
 [ext_resource type="PackedScene" uid="uid://bwbs7u1ym8kgo" path="res://UI/pause_menu/Pause_menu.tscn" id="12_ugojt"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_kbdpr"]
-font = ExtResource("5_2cqfw")
-outline_size = 1
-outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_3t4qf"]
 font = ExtResource("5_2cqfw")
@@ -118,7 +114,7 @@ offset_top = 486.0
 offset_right = 559.0
 offset_bottom = 547.0
 text = "texto de la opcion 1"
-label_settings = ExtResource("4_34m6u")
+label_settings = ExtResource("6_f6yoc")
 horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_lock_ = true
@@ -144,12 +140,12 @@ metadata/_edit_lock_ = true
 anchors_preset = -1
 anchor_right = 3.135
 anchor_bottom = 1.0
-offset_left = 309.0
+offset_left = 312.0
 offset_top = 555.0
-offset_right = 559.0
+offset_right = 556.0
 offset_bottom = 617.0
 text = "texto de la opcion 1"
-label_settings = ExtResource("4_34m6u")
+label_settings = ExtResource("6_f6yoc")
 horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_lock_ = true
@@ -180,7 +176,7 @@ offset_top = 484.0
 offset_right = 966.0
 offset_bottom = 548.0
 text = "texto de la opcion 1"
-label_settings = ExtResource("4_34m6u")
+label_settings = ExtResource("6_f6yoc")
 horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_lock_ = true
@@ -212,7 +208,7 @@ offset_top = 557.0
 offset_right = 966.0
 offset_bottom = 618.0
 text = "texto de la opcion 1"
-label_settings = ExtResource("4_34m6u")
+label_settings = ExtResource("6_f6yoc")
 horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_lock_ = true
@@ -240,7 +236,7 @@ offset_top = 335.0
 offset_right = 771.0
 offset_bottom = 467.0
 text = "Pregunta para el jugador"
-label_settings = SubResource("LabelSettings_kbdpr")
+label_settings = ExtResource("6_f6yoc")
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2

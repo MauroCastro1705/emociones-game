@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bnspgjf5rphxi" path="res://assets/personajes random/sprite3 happy small.png" id="5_t5mof"]
 [ext_resource type="Theme" uid="uid://c6t26lejujvfl" path="res://assets/amarillo_button_theme.tres" id="6_m6rlw"]
 [ext_resource type="Theme" uid="uid://6e5qksub65vd" path="res://assets/azul_button_theme.tres" id="6_t5mof"]
-[ext_resource type="LabelSettings" uid="uid://c8oxhpcf0ygjg" path="res://assets/label_text_theme.tres" id="7_vyb2r"]
+[ext_resource type="LabelSettings" uid="uid://b3fee4lcg6dl2" path="res://assets/texto_generico.tres" id="9_ut7to"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_65fxr"]
 font = ExtResource("3_65fxr")
@@ -104,7 +104,7 @@ offset_top = 462.0
 offset_right = 761.0
 offset_bottom = 625.0
 text = "asdasdasdawdas"
-label_settings = ExtResource("7_vyb2r")
+label_settings = ExtResource("9_ut7to")
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2

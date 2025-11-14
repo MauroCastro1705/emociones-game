@@ -17,9 +17,9 @@ func _ready() -> void:
 	_set_label_info()
 
 func _set_label_info():
-	label_escena_1.text = "Cómo reaccionar cuando un compañero molesta a un amigo y aprender a intervenir sin escalar el conflicto."
-	label_escena_2.text = "Cómo mantener la calma frente a una provocación y decidir entre el respeto, la defensa o la confrontación."
-	label_escena_3.text = "Cómo manejar la frustración y la agresividad durante una competencia deportiva."
+	label_escena_1.text = "Cómo reaccionamos cuando un compañero molesta a un amigo"
+	label_escena_2.text = "Cómo nos manejamos frente a la provocación"
+	label_escena_3.text = "Cómo actuamos cuando competimos en un deporte."
 
 func _ocultar_todos_paneles():
 	panel_escena_1.modulate= Color(1,1,1,0)

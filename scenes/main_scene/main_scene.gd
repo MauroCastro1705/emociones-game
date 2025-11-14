@@ -1,10 +1,10 @@
 extends Node2D
 
-const RESPUESTASDB = preload("res://data/respuestas.gd") #dialogos Data Base
 const NIVEL_1 = preload("res://data/nivel_1.gd")
 const NIVEL_2 = preload("res://data/nivel_2.gd")
 const NIVEL_3 = preload("res://data/nivel_3.gd")
 var escena_elegida_local
+
 
 
 @export var next_scene_on_finish: PackedScene = preload("res://scenes/chart_scene/chart_scene.tscn")
@@ -68,6 +68,28 @@ func cargar_escena_elegida(): #seleccionamos el dialgoo correcto en la base de d
 		2: escena_elegida_local = NIVEL_2
 		3: escena_elegida_local = NIVEL_3
 		_: print("error de escena elegida")
+
+func cargar_assets_correspondientes():
+	match escena_elegida_local:
+		NIVEL_1: set_assets_nivel_1()
+		NIVEL_2: set_assets_nivel_2()
+		NIVEL_3: set_assets_nivel_3()
+		_: print("error de escena elegida")
+
+func set_assets_nivel_1():
+	fondo.texture
+	sprite_1.texture
+	sprite_2.texture
+
+func set_assets_nivel_2():
+	fondo.texture
+	sprite_1.texture
+	sprite_2.texture
+	
+func set_assets_nivel_3():
+	fondo.texture
+	sprite_1.texture
+	sprite_2.texture
 
 #funcion que retorna la base de datos con los dialogos
 func get_escena_elegida_node_data():

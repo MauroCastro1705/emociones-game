@@ -3,7 +3,7 @@ extends Node
 const RESPUESTAS := {
 	"inicio": {
 		"pregunta": "Estás con tus compañeros de curso en las clases de educación física. Están en el campo de deportes jugando al fútbol contra los más grandes. El partido está picante y te meten una falta que te lastima el pie.",
-		"opciones": ["Metés un empujón", "Continuás el juego", "Pedís que tengan cuidado", "Insultás"], # ROJO, AZUL, VERDE, NARANJA
+		"opciones": ["Metés un empujón", "Continuás el juego", "Pedís que tengan cuidado", "Insultás a tu compañero"], # ROJO, AZUL, VERDE, NARANJA
 		"next": ["Dialogo1", "Dialogo1", "Dialogo1", "Dialogo1"]
 	},
 
@@ -64,14 +64,14 @@ const RESPUESTAS := {
 	},
 
 	"Dialogo10": {
-		"pregunta": "El partido termina con la victoria de tu equipo, jugaron con agresividad y eso es parte del juego. Regresaron del club con lastimaduras superficiales.",
+		"pregunta": "El partido termina con la victoria de tu equipo, jugaron con agresividad y eso es parte del juego. Vuelven de la clase lastimados",
 		"opciones": [],
 		"next": [],
 		"final": true
 	},
 
 	"Dialogo11": {
-		"pregunta": "El conflicto llama la atención del profesor y este interviene para frenarlos. Ambos están lastimados físicamente y quedaron con mucho enojo. La pelea fue reportada a la autoridad.",
+		"pregunta": "El conflicto llama la atención del profesor y este interviene para frenarlos. Los dos están lastimados y quedaron con mucho enojo.",
 		"opciones": [],
 		"next": [],
 		"final": true

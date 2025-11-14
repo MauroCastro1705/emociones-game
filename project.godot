@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Emociones"
-config/version="0.0.4"
+config/version="0.0.5"
 config/tags=PackedStringArray("unso_motores")
 run/main_scene="uid://ca41y5q73t00c"
 config/features=PackedStringArray("4.4", "Forward Plus")
@@ -20,7 +20,6 @@ config/icon="uid://dges43khsmro8"
 [autoload]
 
 Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
-Dialogos="*res://data/respuestas.gd"
 Global="*res://data/global.gd"
 AudioManager="*res://audio_manager.tscn"
 

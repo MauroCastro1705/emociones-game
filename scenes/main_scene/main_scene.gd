@@ -9,6 +9,19 @@ var escena_elegida_local
 
 @export var next_scene_on_finish: PackedScene = preload("res://scenes/chart_scene/chart_scene.tscn")
 
+#import de assets
+const N1_AULA = preload("res://assets/nivel_1/aula.jpeg")
+const N1_CHICO_1 = preload("res://assets/nivel_1/chico1.png")
+const N1_CHICO_2 = preload("res://assets/nivel_1/chico2.png")
+#nivel 2
+const N2_AULA = preload("res://assets/nivel_2/aula2.jpeg")
+const N2_CHICO_1 = preload("res://assets/nivel_2/sprite3 sad small.png")
+const N2_CHICO_2 = preload("res://assets/nivel_2/chico2.png")
+#nivel3
+const N3_CANCHA = preload("res://assets/nivel_3/cancha.jpeg")
+const N3_CHICO_1 = preload("res://assets/nivel_3/chico1.png")
+const N3_CHICO_2 = preload("res://assets/nivel_3/chico2.png")
+
 @onready var pause_menu: Control = $Pause_menu
 
 @onready var question_label: Label = $pregunta/pregunta
@@ -54,6 +67,7 @@ var current_id := "inicio"
 func _ready():
 	pause_menu.visible = false
 	cargar_escena_elegida()
+	cargar_assets_correspondientes()
 	_esconder_textos()
 	reset_contadores()
 	_fundido_a_negro()
@@ -77,19 +91,19 @@ func cargar_assets_correspondientes():
 		_: print("error de escena elegida")
 
 func set_assets_nivel_1():
-	fondo.texture
-	sprite_1.texture
-	sprite_2.texture
+	fondo.texture = N1_AULA
+	sprite_1.texture = N1_CHICO_1
+	sprite_2.texture = N1_CHICO_2
 
 func set_assets_nivel_2():
-	fondo.texture
-	sprite_1.texture
-	sprite_2.texture
+	fondo.texture = N2_AULA
+	sprite_1.texture = N2_CHICO_1
+	sprite_2.texture = N2_CHICO_2
 	
 func set_assets_nivel_3():
-	fondo.texture
-	sprite_1.texture
-	sprite_2.texture
+	fondo.texture = N3_CANCHA
+	sprite_1.texture = N3_CHICO_1
+	sprite_2.texture = N3_CHICO_2
 
 #funcion que retorna la base de datos con los dialogos
 func get_escena_elegida_node_data():

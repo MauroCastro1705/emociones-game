@@ -4,14 +4,14 @@
 [ext_resource type="Material" uid="uid://cueaoi5m8ys1" path="res://shaders/wave_lines.tres" id="2_8pht3"]
 [ext_resource type="Theme" uid="uid://c6t26lejujvfl" path="res://assets/amarillo_button_theme.tres" id="2_s4lej"]
 [ext_resource type="FontFile" uid="uid://ct2utu51foi0o" path="res://assets/fonts/Colorfiction - Juice - Freeform.otf" id="3_c3qrd"]
-[ext_resource type="FontFile" uid="uid://c136a2vhcuyce" path="res://assets/fonts/Abaddon Bold.ttf" id="4_i21c6"]
+[ext_resource type="FontFile" uid="uid://cnao6u85fn5gr" path="res://assets/fonts/pixelart.ttf" id="5_8pht3"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_i21c6"]
 font = ExtResource("3_c3qrd")
 font_size = 50
 
 [sub_resource type="LabelSettings" id="LabelSettings_8pht3"]
-font = ExtResource("4_i21c6")
+font = ExtResource("5_8pht3")
 font_size = 30
 font_color = Color(0.980392, 0.643137, 0.121569, 1)
 outline_size = 3

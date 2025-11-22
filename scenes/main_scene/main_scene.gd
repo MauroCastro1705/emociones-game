@@ -12,7 +12,7 @@ var escena_elegida_local
 #import de assets
 const N1_AULA = preload("res://assets/nivel_1/aula.jpeg")
 const N1_CHICO_1 = preload("res://assets/nivel_1/chico1.png")
-const N1_CHICO_2 = preload("res://assets/nivel_1/chico2.png")
+const N1_CHICO_2 = preload("res://assets/nivel_1/sprite2 angry small.png")
 #nivel 2
 const N2_AULA = preload("res://assets/nivel_2/aula2.jpeg")
 const N2_CHICO_1 = preload("res://assets/nivel_2/sprite3 sad small.png")
